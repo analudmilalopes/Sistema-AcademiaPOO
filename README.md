@@ -13,5 +13,14 @@ Desenvolvimento inicial do sistema com foco em praticar conceitos de POO.
 
   * `TipoPlano`
   * `MetodoPagamento`
-* Início da modelagem do sistema de academia
+
+**02/Mai/2026:  Início da modelagem do sistema**
+
+* Criação da classe Pessoa para aplicação de herança 
+* Refatoração das classes Aluno, Recepcionista e Gerente
+* Implementação do menu principal:
+* `Cadastrar`
+* `Login`
+* `Sair`
+* Adição de tratamento de erro no menu
 
