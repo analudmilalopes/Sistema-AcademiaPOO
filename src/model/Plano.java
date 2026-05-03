@@ -6,11 +6,13 @@ public class Plano {
     private TipoPlano tipoPlano;
     private int duracaoEmMeses;
     private double valor;
+    private double taxaMatricula;
 
-    public Plano(TipoPlano tipoPlano, int duracaoEmMeses, double valor){
+    public Plano(TipoPlano tipoPlano, int duracaoEmMeses, double valor, double taxaMatricula){
         this.tipoPlano = tipoPlano;
         this.duracaoEmMeses = duracaoEmMeses;
         this.valor = valor;
+        this.taxaMatricula = taxaMatricula;
     }
 
     public double getValor() {
@@ -35,5 +37,13 @@ public class Plano {
 
     public void setDuracaoEmMeses(int duracaoEmMeses) {
         this.duracaoEmMeses = duracaoEmMeses;
+    }
+
+    public double getTaxaMatricula() {
+        return taxaMatricula;
+    }
+
+    public void setTaxaMatricula(double taxaMatricula) {
+        this.taxaMatricula = taxaMatricula;
     }
 }
