@@ -7,9 +7,8 @@ import java.util.List;
 
 public interface PlanoRepository {
 
-    void adicionarPlano(TipoPlano plano);
+    void adicionarPlano(Plano plano);
 
     List<Plano> listarTodos();
 
-    void buscarTodos();
 }
