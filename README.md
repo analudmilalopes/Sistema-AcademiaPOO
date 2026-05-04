@@ -30,5 +30,7 @@ Desenvolvimento inicial do sistema com foco em praticar conceitos de POO.
 * Aplicação de injeção de dependência no service de plano
 * Refatoração de métodos desnecessários
 
-> Em andamento: finalização do `AlunoService`
+**04/Mai/2026: Finalizando Aluno Service**
+* Finalização do `AlunoService`
+* Uso de Stream com Filter para otimização de busca
 
