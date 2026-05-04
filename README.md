@@ -19,8 +19,16 @@ Desenvolvimento inicial do sistema com foco em praticar conceitos de POO.
 * Criação da classe Pessoa para aplicação de herança 
 * Refatoração das classes Aluno, Recepcionista e Gerente
 * Implementação do menu principal:
-* `Cadastrar`
-* `Login`
-* `Sair`
+  * `Cadastrar`
+  * `Login`
+  * `Sair`
 * Adição de tratamento de erro no menu
+
+**03/Mai/2026: Camada de Service**
+* Criação do `PlanoService`
+* Início do `AlunoService`
+* Aplicação de injeção de dependência no service de plano
+* Refatoração de métodos desnecessários
+
+> Em andamento: finalização do `AlunoService`
 
