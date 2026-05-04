@@ -11,15 +11,15 @@ public class AlunoService {
 
     private AlunoRepository alunoRepository;
 
-    public AlunoService(AlunoRepository alunoRepository){
+    public AlunoService(AlunoRepository alunoRepository) {
         this.alunoRepository = alunoRepository;
     }
 
-    public void cadastrarTodosAlunos(int alunoID, String nome, String cpf, Plano plano){
+    public void cadastrarTodosAlunos(int alunoID, String nome, String cpf, Plano plano) {
         List<Aluno> alunos = alunoRepository.listarTodos();
 
-        for (Aluno aluno : alunos){
-            if (aluno.getCpf().equals(cpf)){
+        for (Aluno aluno : alunos) {
+            if (aluno.getCpf().equals(cpf)) {
                 System.out.println("Aluno já cadastrado no sistema!");
                 return;
             }
@@ -29,10 +29,10 @@ public class AlunoService {
         alunoRepository.cadastrarAluno(aluno);
     }
 
-    public void listarTodosAlunos(){
+    public void listarTodosAlunos() {
         List<Aluno> alunos = alunoRepository.listarTodos();
 
-        for (Aluno aluno : alunos){
+        for (Aluno aluno : alunos) {
             System.out.println("ID - " +
                     aluno.getAlunoID() + "\n" +
                     "Nome: " + aluno.getNome() + "\n" +
@@ -42,13 +42,46 @@ public class AlunoService {
     }
 
     // ja que estou procurando pelo ID de um aluno especifico, retorno Aluno e nao void.
-    public Aluno listarPorId(int alunoID) {
-        List<Aluno> alunos = alunoRepository.listarTodos();
+    public Aluno buscarPorId(int alunoID) {
+        // ao inves de guardar em uma variavel para usar dps como faziamos com LIST, no stream chamamos na hora
 
-        alunos.stream()                 // como o ID e um numero inteiro usamos o == como comparacao
+        // return capta o resultado
+        return alunoRepository.listarTodos()
+                .stream()                 // como o ID e um numero inteiro usamos o == como comparacao
                 .filter(aluno -> aluno.getAlunoID() == alunoID)
-                .forEach(System.out::println);
+                .findFirst()
+                .orElse(null);
 
-
+        // usando o return nao precisamos do sout
     }
-}
+
+        public Aluno buscarPorCpf (String cpf){
+            return alunoRepository.listarTodos()
+                    .stream()
+                    .filter(aluno -> aluno.getCpf().equals(cpf))
+                    .findFirst()
+                    .orElse(null);
+
+        }
+
+        public Aluno buscarPorNome (String nome){
+            return alunoRepository.listarTodos()
+                    .stream()
+                    .filter(aluno -> aluno.getNome().contains(nome))
+                    .findFirst()
+                    .orElse(null);
+
+        }
+
+        public List<Aluno> buscarPeloTipoPlano (TipoPlano tipoPlano){
+            List<Aluno> alunos = alunoRepository.listarTodos();
+
+                    return alunos.stream()
+                    .filter(aluno -> aluno.getPlano().getTipoPlano().equals(tipoPlano))
+                    // usando toList para retornar todos os alunos,
+                    // porque é o único que pode retornar diversos resultados
+                    .toList();
+
+
+        }
+    }
