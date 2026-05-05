@@ -41,6 +41,12 @@ public class AlunoService {
         }
     }
 
+    public boolean removerAlunoPorCpf(String cpf) {
+
+        return alunoRepository.listarTodos()
+                .removeIf(aluno -> aluno.getCpf().equals(cpf));
+
+    }
     // ja que estou procurando pelo ID de um aluno especifico, retorno Aluno e nao void.
     public Aluno buscarPorId(int alunoID) {
         // ao inves de guardar em uma variavel para usar dps como faziamos com LIST, no stream chamamos na hora
