@@ -1,14 +1,14 @@
 package model;
 
 import repository.AlunoRepositoryMemory;
+import service.AlunoService;
 
 public class Recepcionista extends Pessoa{
 
-    private AlunoRepositoryMemory alunoRepository;
+    private AlunoService alunoService;
 
-    public Recepcionista(String nome, String cpf, AlunoRepositoryMemory alunoRepository){
+    public Recepcionista(String nome, String cpf){
         super(nome, cpf);
-        this.alunoRepository = alunoRepository;
     }
 
 }
