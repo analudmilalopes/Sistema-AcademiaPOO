@@ -18,14 +18,14 @@ public class TelaTerciaria {
     }
 
 
-    // para mostrar no nosso termo de consentimento, pegamos o plano que o cliente utilizou e o nome do mesmo.
+    // para mostrar no nosso termo de consentimento, pegamos o plano que o cliente escolheu e o seu nome.
     public void menuSecundario(Plano plano, String nome) {
         int opcoes = 0;
 
         double total = plano.getValor() + plano.getTaxaMatricula();
         System.out.println("Plano: R$" + plano.getValor());
         System.out.println("Taxa de matrícula: R$" + plano.getTaxaMatricula());
-        System.out.println("Total: R$" + total);
+        System.out.println("Deseja prosseguir o pagamento de R$" + total + "?");
         do {
             opcoes = MenuPrincipal.lerNumerosInteiros(" 1 - Pagar | 2 - Voltar | 3 - Sair");
 
@@ -42,6 +42,7 @@ public class TelaTerciaria {
             break;
             case 2:
              telaInicial.criarConta();
+             break;
             case 3:
                 System.out.println("Tchauzinho!!");
                 System.exit(0);
@@ -69,6 +70,7 @@ public class TelaTerciaria {
 
         switch (opcoesPagamento){
             case 1:
+
             }
         }
     }
