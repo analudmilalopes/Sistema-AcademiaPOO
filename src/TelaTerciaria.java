@@ -41,8 +41,7 @@ public class TelaTerciaria {
             pagarPlano(metodoPagamento);
             break;
             case 2:
-             telaInicial.criarConta();
-             break;
+              return;
             case 3:
                 System.out.println("Tchauzinho!!");
                 System.exit(0);
@@ -54,7 +53,7 @@ public class TelaTerciaria {
     public void pagarPlano(MetodoPagamento metodoPagamento){
 
         int opcoesPagamento = 0;
-        System.out.println("-------- MÉTODOS DE PAGAMENTO --------");
+        System.out.println("-------- MÉTODOS DE PAGAMENTO --------\n");
 
         do {
             opcoesPagamento = MenuPrincipal.lerNumerosInteiros("1 - CARTÃO DE CRÉDITO/DÉBITO\n" +
@@ -71,6 +70,50 @@ public class TelaTerciaria {
         switch (opcoesPagamento){
             case 1:
 
+            }
+        }
+
+        public void mostrarTermo(String nome, Plano plano, MetodoPagamento metodoPagamento){
+            double total = plano.getValor() + plano.getTaxaMatricula();
+            System.out.println("-------------------------------------------------");
+            System.out.println("       TERMO DE ADESÃO - ACADEMIA MONSTERS       ");
+            System.out.println("-------------------------------------------------");
+            System.out.println("Ao confirmar o pagamento, o(a) aluno(a) declara\n" +
+                    "que está ciente e concorda com as seguintes\n" +
+                    "condições:\n" +
+                    "\n" +
+                    "1. O plano escolhido terá início na data do\n" +
+                    "   pagamento e será renovado automaticamente\n" +
+                    "   ao término do período contratado.\n" +
+                    "\n" +
+                    "2. O cancelamento deve ser solicitado com \n" +
+                    "   30 dias de antecedência.\n" +
+                    "\n" +
+                    "3. A taxa de matrícula é não reembolsável.\n" +
+                    "\n" +
+                    "4. O aluno se compromete a respeitar as normas\n" +
+                    "   de convivência e segurança da academia.\n" +
+                    "\n" +
+                    "5. A academia não se responsabiliza por objetos\n" +
+                    "   perdidos ou roubados nas dependências.\n" +
+                    "\n" +
+                    "Nome: " + nome + "\n" +
+                    "Plano: " + plano.getTipoPlano().name() + "\n" +
+                    "Valor total: [VALOR + TAXA] = R$" + total + "\n" +
+                    "Método de Pagamento: " + metodoPagamento.name() +
+                    "\n" +
+                    "================================================\n" +
+                    "   Ao continuar, você aceita este termo.\n" +
+                    "================================================\n" +
+                    "\n" +
+                    "1 - CONTINUAR PAGAMENTO\n" +
+                    "2 - CANCELAR");
+
+            int confirmarPagamento = MenuPrincipal.lerNumerosInteiros("1 - CONTINUAR PAGAMENTO | 2 - CANCELAR\n");
+            if (confirmarPagamento == 1){
+                System.out.println("Pagamento de R$" + total + " efetuado no " + metodoPagamento.name() + "! Bom treino! \uD83D\uDE09");
+            }else {
+                return;
             }
         }
     }
