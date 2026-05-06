@@ -22,8 +22,9 @@ public class Main {
         GerenteController gerenteController = new GerenteController(gerente, alunoService);
 
 
+        TelaTerciaria telaTerciaria = new TelaTerciaria(alunoService);
         TelaSecundaria telaSecundaria = new TelaSecundaria(planoService);
-        TelaInicial telaInicial = new TelaInicial(alunoService, gerenteController, planoService, telaSecundaria);
+        TelaInicial telaInicial = new TelaInicial(alunoService, gerenteController, planoService, telaSecundaria, telaTerciaria);
 
         telaInicial.opcoesMenu();
 
