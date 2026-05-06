@@ -38,4 +38,12 @@ public class PlanoService {
         }
     }
 
+    public Plano buscarPorTipoPlano(TipoPlano tipoPlano){
+        return planoRepository.listarTodos()
+                .stream()
+                .filter(plano -> plano.getTipoPlano().equals(tipoPlano))
+                .findFirst()
+                .orElse(null);
+    }
+
 }
