@@ -27,6 +27,12 @@ public class PlanoService {
         planoRepository.adicionarPlano(plano);
     }
 
+    public void inicializarPlanos(){
+        adicionarTodosPlanos(TipoPlano.MENSAL, 1, 99.99, 25.50);
+        adicionarTodosPlanos(TipoPlano.TRIMESTRAL, 3, 129.90, 30.00);
+        adicionarTodosPlanos(TipoPlano.ANUAL, 12, 949.90, 0.0);
+    }
+
     public void listaTodosPlanos(){
         List<Plano> planos = planoRepository.listarTodos();
 
@@ -45,5 +51,7 @@ public class PlanoService {
                 .findFirst()
                 .orElse(null);
     }
+
+
 
 }
