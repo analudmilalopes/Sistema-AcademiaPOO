@@ -8,6 +8,7 @@ public class TelaSecundaria {
 
     Scanner scanner = new Scanner(System.in);
 
+    TelaTerciaria telaTerciaria;
     PlanoService planoService;
 
     public TelaSecundaria(PlanoService planoService){
