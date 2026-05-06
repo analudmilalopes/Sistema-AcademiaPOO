@@ -12,6 +12,8 @@ public class PlanoService {
 
     public PlanoService(PlanoRepository planoRepository){
         this.planoRepository = planoRepository;
+        // chamando aqui para deixar a main mais limpa, e já é inicializado quando cria o service
+        inicializarPlanos();
     }
 
     public void adicionarTodosPlanos(TipoPlano tipoPlano, int duracaoEmMeses, double valor, double taxaMatricula){
