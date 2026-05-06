@@ -1,15 +1,24 @@
+import enums.TipoPlano;
+import model.Aluno;
 import model.Plano;
+import service.AlunoService;
+import service.PlanoService;
 
 import java.util.Scanner;
 
 public class TelaInicial {
-
-
-
     int opcoes = 0;
 
     Scanner scanner = new Scanner(System.in);
     Plano plano;
+    AlunoService alunoService;
+    PlanoService planoService;
+    GerenteController gerenteController;
+    TelaSecundaria telaSecundaria;
+    public TelaInicial(AlunoService alunoService, GerenteController gerenteController){
+        this.alunoService = alunoService;
+        this.gerenteController = gerenteController;
+    }
 
     public void opcoesMenu(){
 
@@ -26,6 +35,12 @@ public class TelaInicial {
         switch (opcoes){
             case 1:
                 criarConta();
+                break;
+            case 2:
+                login();
+            case 3:
+                System.out.println("Tchauzinho!!");
+                System.exit(0);
                 break;
             default:
                 System.out.println("Apenas uma das 3 opcoes sao validas!");
@@ -47,34 +62,63 @@ public class TelaInicial {
         System.out.println("Qual plano deseja?");
         do {
             opcoesPlano = MenuPrincipal.lerNumerosInteiros("1 - MENSAL\n" +
-                    "2 - TRIMESTRAL\n" + "3 - ANUAL");
+                    "2 - TRIMESTRAL\n" + "3 - ANUAL\n" + "4 - Ver todos os planos\n" + "5 - Sair");
 
 
-            if (opcoesPlano >= 1 && opcoes <= 3){
+            if (opcoesPlano >= 1 && opcoesPlano <= 5){
                 break;
             }else {
-                System.out.println("Escolher um dos 3 planos.");
+                System.out.println("Escolha uma das 5 opções!");
             }
         }while (opcoesPlano !=0);
 
         switch (opcoesPlano){
             case 1:
-               // criarConta(); planoMensal();
+                telaSecundaria.mostrarPlano(TipoPlano.MENSAL);
+                break;
+            case 2:
+                telaSecundaria.mostrarPlano(TipoPlano.TRIMESTRAL);
+                break;
+            case 3:
+                telaSecundaria.mostrarPlano(TipoPlano.ANUAL);
+            case 4:
+                planoService.listaTodosPlanos();
+            case 5:
+                System.out.println("Até logo!");
+                System.exit(0);
                 break;
             default:
-                System.out.println("Apenas uma das 3 opcoes sao validas!");
+                System.out.println("Apenas uma das 5 opções são validas!");
         }
     }
 
 
-    public void login(){
+    public void login() {
+        while (true) {
 
-        String cpf = MenuPrincipal.lerCpf("CPF: ");
+            String nomeLogin = MenuPrincipal.lerNomes("Nome: ");
+            String cpfLogin = MenuPrincipal.lerCpf("CPF: ");
+            if (cpfLogin.equals("12345678910") && nomeLogin.equals("Ludmila")) {
+                gerenteController.TelaGerente();
+                break;
+            } else {
+                Aluno aluno = alunoService.buscarPorCpf(cpfLogin);
+                if (aluno != null) {
+                    // abre a tela do aluno com as opcoes
+                } else {
+                    System.out.println("CPF não encontrado no sistema!");
+                }
+            }
+
+            // codigo antigo
+            //String nomeLogin = MenuPrincipal.lerNomes("Nome: ");
+            //String cpfLogin = MenuPrincipal.lerCpf("CPF: ");
+            //if (cpfLogin.equals("12345678910") && nomeLogin.equals("Ludmila")){
+            //     gerenteController.TelaGerente();
+            // }else {
+            //     login();
+        }
+
     }
-
-
-   // public void planoMensal(){
-    //
-    //    }
 
 }
