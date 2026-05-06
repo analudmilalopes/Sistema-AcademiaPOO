@@ -18,6 +18,7 @@ public class TelaTerciaria {
     }
 
 
+    // para mostrar no nosso termo de consentimento, pegamos o plano que o cliente utilizou e o nome do mesmo.
     public void menuSecundario(Plano plano, String nome) {
         int opcoes = 0;
 
