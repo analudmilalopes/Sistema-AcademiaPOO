@@ -1,3 +1,4 @@
+import enums.MetodoPagamento;
 import enums.TipoPlano;
 import model.Aluno;
 import model.Plano;
@@ -15,9 +16,13 @@ public class TelaInicial {
     PlanoService planoService;
     GerenteController gerenteController;
     TelaSecundaria telaSecundaria;
-    public TelaInicial(AlunoService alunoService, GerenteController gerenteController){
+    TelaTerciaria telaTerciaria;
+    public TelaInicial(AlunoService alunoService, GerenteController gerenteController, PlanoService planoService, TelaSecundaria telaSecundaria, TelaTerciaria telaTerciaria){
         this.alunoService = alunoService;
         this.gerenteController = gerenteController;
+        this.planoService = planoService;
+        this.telaSecundaria = telaSecundaria;
+        this.telaTerciaria = telaTerciaria;
     }
 
     public void opcoesMenu(){
@@ -70,11 +75,13 @@ public class TelaInicial {
             }else {
                 System.out.println("Escolha uma das 5 opções!");
             }
-        }while (opcoesPlano !=0);
+         }while (opcoesPlano !=0);
 
         switch (opcoesPlano){
             case 1:
+                Plano planoEscolhido = planoService.buscarPorTipoPlano(TipoPlano.MENSAL);
                 telaSecundaria.mostrarPlano(TipoPlano.MENSAL);
+                telaTerciaria.menuSecundario(planoEscolhido, nome);
                 break;
             case 2:
                 telaSecundaria.mostrarPlano(TipoPlano.TRIMESTRAL);
@@ -98,7 +105,7 @@ public class TelaInicial {
 
             String nomeLogin = MenuPrincipal.lerNomes("Nome: ");
             String cpfLogin = MenuPrincipal.lerCpf("CPF: ");
-            if (cpfLogin.equals("12345678910") && nomeLogin.equals("Ludmila")) {
+            if (cpfLogin.equals("12345678910") && nomeLogin.equalsIgnoreCase("Ludmila")) {
                 gerenteController.TelaGerente();
                 break;
             } else {
@@ -110,13 +117,6 @@ public class TelaInicial {
                 }
             }
 
-            // codigo antigo
-            //String nomeLogin = MenuPrincipal.lerNomes("Nome: ");
-            //String cpfLogin = MenuPrincipal.lerCpf("CPF: ");
-            //if (cpfLogin.equals("12345678910") && nomeLogin.equals("Ludmila")){
-            //     gerenteController.TelaGerente();
-            // }else {
-            //     login();
         }
 
     }
