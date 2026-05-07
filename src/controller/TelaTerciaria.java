@@ -1,5 +1,5 @@
+package controller;
 import enums.MetodoPagamento;
-import enums.TipoPlano;
 import model.Plano;
 import service.AlunoService;
 

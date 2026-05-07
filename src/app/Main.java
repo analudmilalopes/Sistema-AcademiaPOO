@@ -1,3 +1,8 @@
+package app;
+import controller.TelaInicial;
+import controller.TelaSecundaria;
+import controller.TelaTerciaria;
+import controller.GerenteController;
 import model.Gerente;
 import repository.AlunoRepository;
 import repository.AlunoRepositoryMemory;
