@@ -15,19 +15,19 @@ public class AlunoService {
         this.alunoRepository = alunoRepository;
     }
 
-    public void cadastrarTodosAlunos(int alunoID, String nome, String cpf, Plano plano) {
-        List<Aluno> alunos = alunoRepository.listarTodos();
+        public void cadastrarTodosAlunos(String nome, String cpf, Plano plano) {
+            List<Aluno> alunos = alunoRepository.listarTodos();
 
-        for (Aluno aluno : alunos) {
-            if (aluno.getCpf().equals(cpf)) {
-                System.out.println("Aluno já cadastrado no sistema!");
-                return;
+            for (Aluno aluno : alunos) {
+                if (aluno.getCpf().equals(cpf)) {
+                    System.out.println("Aluno já cadastrado no sistema!");
+                    return;
+                }
             }
-        }
 
-        Aluno aluno = new Aluno(alunoID, nome, cpf, plano);
-        alunoRepository.cadastrarAluno(aluno);
-    }
+            Aluno aluno = new Aluno(nome, cpf, plano);
+            alunoRepository.cadastrarAluno(aluno);
+        }
 
     public void listarTodosAlunos() {
         List<Aluno> alunos = alunoRepository.listarTodos();
