@@ -6,7 +6,7 @@ public class Aluno extends Pessoa{
     Plano plano;
 
 
-    public Aluno(int alunoID, String nome, String cpf, Plano plano){
+    public Aluno(String nome, String cpf, Plano plano){
         super(nome, cpf);
         this.alunoID = contarId++;
         this.plano = plano;
