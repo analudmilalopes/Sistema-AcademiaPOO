@@ -19,7 +19,7 @@ public class TelaTerciaria {
 
 
     // para mostrar no nosso termo de consentimento, pegamos o plano que o cliente escolheu e o seu nome.
-    public void menuSecundario(Plano plano, String nome) {
+    public void menuSecundario(Plano plano, String nome, String cpf) {
         int opcoes = 0;
 
         double total = plano.getValor() + plano.getTaxaMatricula();
@@ -38,7 +38,7 @@ public class TelaTerciaria {
 
         switch (opcoes) {
             case 1:
-            pagarPlano(metodoPagamento);
+            pagarPlano(nome, cpf, plano, metodoPagamento);
             break;
             case 2:
               return;
@@ -50,7 +50,7 @@ public class TelaTerciaria {
                 System.out.println("Apenas uma das 3 opções são válidas!");
         }
     }
-    public void pagarPlano(MetodoPagamento metodoPagamento){
+    public void pagarPlano(String nome, String cpf, Plano plano, MetodoPagamento metodoPagamento){
 
         int opcoesPagamento = 0;
         System.out.println("-------- MÉTODOS DE PAGAMENTO --------\n");
@@ -69,11 +69,17 @@ public class TelaTerciaria {
 
         switch (opcoesPagamento){
             case 1:
-
+            mostrarTermo(nome, cpf, plano, MetodoPagamento.CARTAO);
+            break;
+            case 2:
+            mostrarTermo(nome, cpf, plano, MetodoPagamento.DINHEIRO);
+            break;
+            case 3:
+            mostrarTermo(nome, cpf, plano, MetodoPagamento.PIX);
             }
         }
 
-        public void mostrarTermo(String nome, Plano plano, MetodoPagamento metodoPagamento){
+        public void mostrarTermo(String nome, String cpf, Plano plano, MetodoPagamento metodoPagamento){
             double total = plano.getValor() + plano.getTaxaMatricula();
             System.out.println("-------------------------------------------------");
             System.out.println("       TERMO DE ADESÃO - ACADEMIA MONSTERS       ");
@@ -98,6 +104,7 @@ public class TelaTerciaria {
                     "   perdidos ou roubados nas dependências.\n" +
                     "\n" +
                     "Nome: " + nome + "\n" +
+                    "CPF: " + cpf + "\n" +
                     "Plano: " + plano.getTipoPlano().name() + "\n" +
                     "Valor total: [VALOR + TAXA] = R$" + total + "\n" +
                     "Método de Pagamento: " + metodoPagamento.name() +
@@ -112,6 +119,7 @@ public class TelaTerciaria {
             int confirmarPagamento = MenuPrincipal.lerNumerosInteiros("1 - CONTINUAR PAGAMENTO | 2 - CANCELAR\n");
             if (confirmarPagamento == 1){
                 System.out.println("Pagamento de R$" + total + " efetuado no " + metodoPagamento.name() + "! Bom treino! \uD83D\uDE09");
+                alunoService.cadastrarTodosAlunos(nome, cpf, plano);
             }else {
                 return;
             }
