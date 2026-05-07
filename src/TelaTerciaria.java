@@ -23,8 +23,6 @@ public class TelaTerciaria {
         int opcoes = 0;
 
         double total = plano.getValor() + plano.getTaxaMatricula();
-        System.out.println("Plano: R$" + plano.getValor());
-        System.out.println("Taxa de matrícula: R$" + plano.getTaxaMatricula());
         System.out.println("Deseja prosseguir o pagamento de R$" + total + "?");
         do {
             opcoes = MenuPrincipal.lerNumerosInteiros(" 1 - Pagar | 2 - Voltar | 3 - Sair");
@@ -112,9 +110,7 @@ public class TelaTerciaria {
                     "================================================\n" +
                     "   Ao continuar, você aceita este termo.\n" +
                     "================================================\n" +
-                    "\n" +
-                    "1 - CONTINUAR PAGAMENTO\n" +
-                    "2 - CANCELAR");
+                    "\n");
 
             int confirmarPagamento = MenuPrincipal.lerNumerosInteiros("1 - CONTINUAR PAGAMENTO | 2 - CANCELAR\n");
             if (confirmarPagamento == 1){
