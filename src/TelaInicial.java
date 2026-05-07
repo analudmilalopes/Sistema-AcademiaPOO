@@ -79,17 +79,23 @@ public class TelaInicial {
 
         switch (opcoesPlano){
             case 1:
-                Plano planoEscolhido = planoService.buscarPorTipoPlano(TipoPlano.MENSAL);
+                Plano planoMensal = planoService.buscarPorTipoPlano(TipoPlano.MENSAL);
                 telaSecundaria.mostrarPlano(TipoPlano.MENSAL);
-                telaTerciaria.menuSecundario(planoEscolhido, nome);
+                telaTerciaria.menuSecundario(planoMensal, nome, cpf);
                 break;
             case 2:
+                Plano planoTrimestral = planoService.buscarPorTipoPlano(TipoPlano.TRIMESTRAL);
                 telaSecundaria.mostrarPlano(TipoPlano.TRIMESTRAL);
+                telaTerciaria.menuSecundario(planoTrimestral, nome, cpf);
                 break;
             case 3:
+                Plano planoAnual = planoService.buscarPorTipoPlano(TipoPlano.ANUAL);
                 telaSecundaria.mostrarPlano(TipoPlano.ANUAL);
+                telaTerciaria.menuSecundario(planoAnual, nome, cpf);
+                break;
             case 4:
                 planoService.listaTodosPlanos();
+                break;
             case 5:
                 System.out.println("Até logo!");
                 System.exit(0);
