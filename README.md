@@ -34,3 +34,14 @@ Desenvolvimento inicial do sistema com foco em praticar conceitos de POO.
 * Finalização do `AlunoService`
 * Uso de Stream com Filter para otimização de busca
 
+**05/Mai/2026: Controller e Repository**
+* Criação do `GerenteController` com menu completo
+* Adição de remoção de aluno por CPF
+* Refatoração: Recepcionista e Gerente recebem o Service
+* Criação da `TelaSecundaria` para exibição dos planos
+
+**06/Mai/2026: Fluxo de cadastro e pagamento do Aluno**
+* Criação da `TelaTerciaria` com menu de pagamento
+* Implementação do termo de adesão com dados do aluno
+* Fluxo completo: cadastro → escolha de plano → pagamento
+* ID do aluno gerado automaticamente
