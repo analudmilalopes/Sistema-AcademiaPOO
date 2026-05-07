@@ -1,13 +1,14 @@
 package model;
 
 public class Aluno extends Pessoa{
-    //private int contarId = 0;
+    private static int contarId = 1;
     private int alunoID;
     Plano plano;
 
 
     public Aluno(int alunoID, String nome, String cpf, Plano plano){
         super(nome, cpf);
+        this.alunoID = contarId++;
         this.plano = plano;
     }
 
