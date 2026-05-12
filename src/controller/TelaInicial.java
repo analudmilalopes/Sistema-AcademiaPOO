@@ -105,7 +105,10 @@ public class TelaInicial {
                 default:
                     System.out.println("Apenas uma das 5 opções são validas!");
             }
+            System.out.println("Cadastro realizado " + nome + "! Faça o login:");
+            login();
         }
+
     }
 
 
