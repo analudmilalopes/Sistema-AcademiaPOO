@@ -64,45 +64,47 @@ public class TelaInicial {
         int opcoesPlano = 0;
 
 
-        // aqui vai mostrar a lista com cada plano, valor e duracao. ai a pessoa tb vai escolher um dos 3 planos
-        System.out.println("Qual plano deseja?");
-        do {
-            opcoesPlano = MenuPrincipal.lerNumerosInteiros("1 - MENSAL\n" +
-                    "2 - TRIMESTRAL\n" + "3 - ANUAL\n" + "4 - Ver todos os planos\n" + "5 - Sair");
+        while (true) {
+            // aqui vai mostrar a lista com cada plano, valor e duracao. ai a pessoa tb vai escolher um dos 3 planos
+            System.out.println("Qual plano deseja?");
+            do {
+                opcoesPlano = MenuPrincipal.lerNumerosInteiros("1 - MENSAL\n" +
+                        "2 - TRIMESTRAL\n" + "3 - ANUAL\n" + "4 - Ver todos os planos\n" + "5 - Sair");
 
 
-            if (opcoesPlano >= 1 && opcoesPlano <= 5){
-                break;
-            }else {
-                System.out.println("Escolha uma das 5 opções!");
+                if (opcoesPlano >= 1 && opcoesPlano <= 5) {
+                    break;
+                } else {
+                    System.out.println("Escolha uma das 5 opções!");
+                }
+            } while (opcoesPlano != 0);
+
+            switch (opcoesPlano) {
+                case 1:
+                    Plano planoMensal = planoService.buscarPorTipoPlano(TipoPlano.MENSAL);
+                    telaSecundaria.mostrarPlano(TipoPlano.MENSAL);
+                    telaTerciaria.menuSecundario(planoMensal, nome, cpf);
+                    break;
+                case 2:
+                    Plano planoTrimestral = planoService.buscarPorTipoPlano(TipoPlano.TRIMESTRAL);
+                    telaSecundaria.mostrarPlano(TipoPlano.TRIMESTRAL);
+                    telaTerciaria.menuSecundario(planoTrimestral, nome, cpf);
+                    break;
+                case 3:
+                    Plano planoAnual = planoService.buscarPorTipoPlano(TipoPlano.ANUAL);
+                    telaSecundaria.mostrarPlano(TipoPlano.ANUAL);
+                    telaTerciaria.menuSecundario(planoAnual, nome, cpf);
+                    break;
+                case 4:
+                    planoService.listaTodosPlanos();
+                    break;
+                case 5:
+                    System.out.println("Até logo!");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Apenas uma das 5 opções são validas!");
             }
-         }while (opcoesPlano !=0);
-
-        switch (opcoesPlano){
-            case 1:
-                Plano planoMensal = planoService.buscarPorTipoPlano(TipoPlano.MENSAL);
-                telaSecundaria.mostrarPlano(TipoPlano.MENSAL);
-                telaTerciaria.menuSecundario(planoMensal, nome, cpf);
-                break;
-            case 2:
-                Plano planoTrimestral = planoService.buscarPorTipoPlano(TipoPlano.TRIMESTRAL);
-                telaSecundaria.mostrarPlano(TipoPlano.TRIMESTRAL);
-                telaTerciaria.menuSecundario(planoTrimestral, nome, cpf);
-                break;
-            case 3:
-                Plano planoAnual = planoService.buscarPorTipoPlano(TipoPlano.ANUAL);
-                telaSecundaria.mostrarPlano(TipoPlano.ANUAL);
-                telaTerciaria.menuSecundario(planoAnual, nome, cpf);
-                break;
-            case 4:
-                planoService.listaTodosPlanos();
-                break;
-            case 5:
-                System.out.println("Até logo!");
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Apenas uma das 5 opções são validas!");
         }
     }
 
