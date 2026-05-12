@@ -32,7 +32,6 @@ public class MenuPrincipal {
             } else {
                 System.out.println("Somente letras.");
             }
-            return entradaMensagem;
         }
     }
 
