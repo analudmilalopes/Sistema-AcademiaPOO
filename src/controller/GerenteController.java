@@ -22,8 +22,8 @@ public class GerenteController {
 
         do {
 
-            opcoesGerente = MenuPrincipal.lerNumerosInteiros("1 - Listar Alunos | 2 - Buscar aluno por ID | " +
-                    "3 - Buscar aluno por CPF | 4 - Buscar aluno por Nome | 5 - Remover Aluno | 6 - Sair ");
+            opcoesGerente = MenuPrincipal.lerNumerosInteiros("1 - Listar Alunos\n" + "2 - Buscar aluno por ID\n" +
+                    "3 - Buscar aluno por CPF\n" + "4 - Buscar aluno por Nome\n" + "5 - Remover Aluno\n" + "6 - Sair");
 
             if (opcoesGerente >= 1 && opcoesGerente <= 6) {
                 break;
