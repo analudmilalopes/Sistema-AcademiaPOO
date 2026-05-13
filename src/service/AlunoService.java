@@ -58,7 +58,6 @@ public class AlunoService {
                 .findFirst()
                 .orElse(null);
 
-        // usando o return nao precisamos do sout
     }
 
         public Aluno buscarPorCpf (String cpf){
@@ -87,7 +86,6 @@ public class AlunoService {
                     // usando toList para retornar todos os alunos,
                     // porque é o único que pode retornar diversos resultados
                     .toList();
-
 
         }
     }

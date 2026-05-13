@@ -1,8 +1,10 @@
 package controller;
+import enums.TipoPlano;
 import model.Aluno;
 import model.Gerente;
 import service.AlunoService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class GerenteController {
@@ -23,9 +25,10 @@ public class GerenteController {
         do {
 
             opcoesGerente = MenuPrincipal.lerNumerosInteiros("1 - Listar Alunos\n" + "2 - Buscar aluno por ID\n" +
-                    "3 - Buscar aluno por CPF\n" + "4 - Buscar aluno por Nome\n" + "5 - Remover Aluno\n" + "6 - Sair");
+                    "3 - Buscar aluno por CPF\n" + "4 - Buscar aluno por Nome\n" + "5 - Remover Aluno\n" +
+                    "6 - Buscar aluno por Tipo de Plano\n" + "7 - Sair");
 
-            if (opcoesGerente >= 1 && opcoesGerente <= 6) {
+            if (opcoesGerente >= 1 && opcoesGerente <= 7) {
                 break;
             } else {
                 System.out.println("Escolher entre 1 e 6.");
@@ -57,9 +60,12 @@ public class GerenteController {
                }
                 break;
             case 6:
+                String planoProcurado = MenuPrincipal.lerNomes("Digite o nome do Plano que deseja procurar:\n");
+                mostrarBuscaLista(alunoService.buscarPeloTipoPlano(TipoPlano.valueOf(planoProcurado.toUpperCase())));
+                break;
+            case 7:
                 System.exit(0);
                 break;
-
             default:
                 System.out.println("Apenas uma das 6 opcoes sao validas!");
         }
@@ -73,6 +79,17 @@ public class GerenteController {
             System.out.println("Plano: " + aluno.getPlano().getTipoPlano());
         } else {
             System.out.println("Aluno não encontrado!");
+        }
+    }
+
+    public void mostrarBuscaLista(List<Aluno> alunos){
+        if (alunos.isEmpty()){
+            System.out.println("Nenhum aluno foi encontrado.");
+            return;
+        }
+        for (Aluno aluno : alunos){
+            mostrarBusca(aluno);
+            System.out.println("---");
         }
     }
 }
