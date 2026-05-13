@@ -64,7 +64,8 @@ public class TelaInicial {
         int opcoesPlano = 0;
 
 
-        while (true) {
+        boolean pagamentoFoiEfetuado = false;
+        while (!pagamentoFoiEfetuado) {
             // aqui vai mostrar a lista com cada plano, valor e duracao. ai a pessoa tb vai escolher um dos 3 planos
             System.out.println("Qual plano deseja?");
             do {
@@ -83,17 +84,17 @@ public class TelaInicial {
                 case 1:
                     Plano planoMensal = planoService.buscarPorTipoPlano(TipoPlano.MENSAL);
                     telaSecundaria.mostrarPlano(TipoPlano.MENSAL);
-                    telaTerciaria.menuSecundario(planoMensal, nome, cpf);
+                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoMensal, nome, cpf);
                     break;
                 case 2:
                     Plano planoTrimestral = planoService.buscarPorTipoPlano(TipoPlano.TRIMESTRAL);
                     telaSecundaria.mostrarPlano(TipoPlano.TRIMESTRAL);
-                    telaTerciaria.menuSecundario(planoTrimestral, nome, cpf);
+                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoTrimestral, nome, cpf);
                     break;
                 case 3:
                     Plano planoAnual = planoService.buscarPorTipoPlano(TipoPlano.ANUAL);
                     telaSecundaria.mostrarPlano(TipoPlano.ANUAL);
-                    telaTerciaria.menuSecundario(planoAnual, nome, cpf);
+                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoAnual, nome, cpf);
                     break;
                 case 4:
                     planoService.listaTodosPlanos();
@@ -105,10 +106,12 @@ public class TelaInicial {
                 default:
                     System.out.println("Apenas uma das 5 opções são validas!");
             }
+
+        }
+        if (pagamentoFoiEfetuado) {
             System.out.println("Cadastro realizado " + nome + "! Faça o login:");
             login();
         }
-
     }
 
 
