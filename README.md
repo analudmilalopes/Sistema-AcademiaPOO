@@ -45,3 +45,20 @@ Desenvolvimento inicial do sistema com foco em praticar conceitos de POO.
 * Implementação do termo de adesão com dados do aluno
 * Fluxo completo: cadastro → escolha de plano → pagamento
 * ID do aluno gerado automaticamente
+
+**07/Mai/2026: Desenvolvendo arquitetura**
+* Organizando as classes em camadas:
+* `model`
+* `repository`
+* `service`
+* `controller`
+
+**12/Mai/2026: Arrumando bugs de cadastro**
+* Correção de loops que encerravam o menu incorretamente
+*  Correção na leitura da entrada do nome do aluno
+* Ajuste do fluxo após pagamento efetuado
+
+**13/Mai/2026: Melhorias na busca e organização**
+* Implementação de busca de alunos por tipo de plano
+* Uso de `Stream`
+* Melhorias visuais no menu do gerente

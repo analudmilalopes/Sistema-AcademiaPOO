@@ -84,7 +84,7 @@ public class AlunoService {
                     return alunos.stream()
                     .filter(aluno -> aluno.getPlano().getTipoPlano().equals(tipoPlano))
                     // usando toList para retornar todos os alunos,
-                    // porque é o único que pode retornar diversos resultados
+                            // porque é o único que pode retornar diversos resultados
                     .toList();
 
         }
