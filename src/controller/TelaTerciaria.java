@@ -3,6 +3,7 @@
     import model.Aluno;
     import model.Pagamento;
     import model.Plano;
+    import repository.PagamentoRepository;
     import service.AlunoService;
 
     import java.time.LocalDate;
@@ -16,9 +17,11 @@
         MetodoPagamento metodoPagamento;
         TelaInicial telaInicial;
         TelaSecundaria telaSecundaria;
+        PagamentoRepository pagamentoRepository;
         AlunoService alunoService;
-        public TelaTerciaria(AlunoService alunoService){
+        public TelaTerciaria(AlunoService alunoService, PagamentoRepository pagamentoRepository){
             this.alunoService = alunoService;
+            this.pagamentoRepository = pagamentoRepository;
         }
 
 
