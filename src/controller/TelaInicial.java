@@ -89,17 +89,17 @@ public class TelaInicial {
                 case 1:
                     Plano planoMensal = planoService.buscarPorTipoPlano(TipoPlano.MENSAL);
                     telaSecundaria.mostrarPlano(TipoPlano.MENSAL);
-                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoMensal, nome, cpf);
+                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoMensal, nome, cpf, altura, peso);
                     break;
                 case 2:
                     Plano planoTrimestral = planoService.buscarPorTipoPlano(TipoPlano.TRIMESTRAL);
                     telaSecundaria.mostrarPlano(TipoPlano.TRIMESTRAL);
-                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoTrimestral, nome, cpf);
+                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoTrimestral, nome, cpf, altura, peso);
                     break;
                 case 3:
                     Plano planoAnual = planoService.buscarPorTipoPlano(TipoPlano.ANUAL);
                     telaSecundaria.mostrarPlano(TipoPlano.ANUAL);
-                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoAnual, nome, cpf);
+                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoAnual, nome, cpf, altura, peso);
                     break;
                 case 4:
                     planoService.listaTodosPlanos();
@@ -114,7 +114,8 @@ public class TelaInicial {
 
         }
         if (pagamentoFoiEfetuado) {
-            System.out.println("Cadastro realizado " + nome + "! Faça o login:");
+            System.out.println("Cadastro realizado " + nome + "!");
+            System.out.println("Faça o login.");
             login();
         }
     }
