@@ -4,6 +4,8 @@ public class Aluno extends Pessoa{
     private static int contarId = 1;
     private int alunoID;
     Plano plano;
+    private double peso;
+    private double altura;
 
 
     public Aluno(String nome, String cpf, Plano plano){
@@ -27,5 +29,21 @@ public class Aluno extends Pessoa{
 
     public void setPlano(Plano plano) {
         this.plano = plano;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
     }
 }
