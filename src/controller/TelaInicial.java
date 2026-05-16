@@ -3,6 +3,7 @@ package controller;
 import enums.TipoPlano;
 import model.Aluno;
 import model.Plano;
+import repository.PagamentoRepository;
 import service.AlunoService;
 import service.PlanoService;
 
@@ -18,12 +19,15 @@ public class TelaInicial {
     GerenteController gerenteController;
     TelaSecundaria telaSecundaria;
     TelaTerciaria telaTerciaria;
-    public TelaInicial(AlunoService alunoService, GerenteController gerenteController, PlanoService planoService, TelaSecundaria telaSecundaria, TelaTerciaria telaTerciaria){
+    PagamentoRepository pagamentoRepository;
+    public TelaInicial(AlunoService alunoService, GerenteController gerenteController, PlanoService planoService,
+                       TelaSecundaria telaSecundaria, TelaTerciaria telaTerciaria, PagamentoRepository pagamentoRepository){
         this.alunoService = alunoService;
         this.gerenteController = gerenteController;
         this.planoService = planoService;
         this.telaSecundaria = telaSecundaria;
         this.telaTerciaria = telaTerciaria;
+        this.pagamentoRepository = pagamentoRepository;
     }
 
     public void opcoesMenu(){
@@ -132,7 +136,8 @@ public class TelaInicial {
             } else {
                 Aluno aluno = alunoService.buscarPorCpf(cpfLogin);
                 if (aluno != null) {
-
+                    AlunoController alunoController = new AlunoController(aluno, pagamentoRepository);
+                    alunoController.TelaAluno();
                 } else {
                     System.out.println("CPF não encontrado no sistema!");
                 }
