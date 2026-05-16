@@ -1,14 +1,18 @@
     package controller;
     import enums.MetodoPagamento;
+    import model.Aluno;
+    import model.Pagamento;
     import model.Plano;
     import service.AlunoService;
 
+    import java.time.LocalDate;
     import java.util.Scanner;
 
     public class TelaTerciaria {
 
         Scanner scanner = new Scanner(System.in);
 
+        Pagamento pagamento;
         MetodoPagamento metodoPagamento;
         TelaInicial telaInicial;
         TelaSecundaria telaSecundaria;
@@ -112,8 +116,10 @@
 
                 int confirmarPagamento = LeitorEntrada.lerNumerosInteiros("1 - CONTINUAR PAGAMENTO | 2 - CANCELAR\n");
                 if (confirmarPagamento == 1){
-                    System.out.println("Pagamento de R$" + total + " efetuado no " + metodoPagamento.name() + "! Bom treino! \uD83D\uDE09");
                     alunoService.cadastrarTodosAlunos(nome, cpf, plano, altura, peso);
+                    Aluno aluno = alunoService.buscarPorCpf(cpf);
+                    Pagamento pagamento = new Pagamento(aluno, total, metodoPagamento, LocalDate.now());
+                    System.out.println("Pagamento efetuado! Bom treino! \uD83D\uDE09");
                     return true;
                 }else {
                     return false;
