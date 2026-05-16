@@ -22,6 +22,7 @@ public class LeitorEntrada {
     }
 
     public static double lerNumerosQuebrados(String mensagemUsuario) {
+
         while (true){
             System.out.println(mensagemUsuario);
 
