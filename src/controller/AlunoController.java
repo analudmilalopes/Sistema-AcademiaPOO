@@ -3,6 +3,7 @@ package controller;
 import enums.TipoPlano;
 import model.Aluno;
 import model.Pagamento;
+import repository.PagamentoRepository;
 
 import java.util.Scanner;
 
@@ -11,12 +12,12 @@ public class AlunoController {
     Aluno aluno;
     TipoPlano tipoPlano;
     Pagamento pagamento;
+    PagamentoRepository pagamentoRepository;
     Scanner scanner = new Scanner(System.in);
 
-    public AlunoController(Aluno aluno, Pagamento pagamento, TipoPlano tipoPlano){
+    public AlunoController(Aluno aluno, PagamentoRepository pagamentoRepository){
         this.aluno = aluno;
-        this.pagamento = pagamento;
-        this.tipoPlano = tipoPlano;
+        this.pagamentoRepository = pagamentoRepository;
     }
     public void TelaAluno(){
 
@@ -104,6 +105,10 @@ public class AlunoController {
         }else {
             System.out.printf("IMC = %.2f, você está com obesidade grau 3.%n", IMC);
         }
+
+    }
+
+    public void verPagamento(Pagamento pagamento){
 
     }
 }

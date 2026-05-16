@@ -24,7 +24,7 @@ public class GerenteController {
 
         do {
 
-            opcoesGerente = MenuPrincipal.lerNumerosInteiros("1 - Listar Alunos\n" + "2 - Buscar aluno por ID\n" +
+            opcoesGerente = LeitorEntrada.lerNumerosInteiros("1 - Listar Alunos\n" + "2 - Buscar aluno por ID\n" +
                     "3 - Buscar aluno por CPF\n" + "4 - Buscar aluno por Nome\n" + "5 - Remover Aluno\n" +
                     "6 - Buscar aluno por Tipo de Plano\n" + "7 - Sair");
 
@@ -40,19 +40,19 @@ public class GerenteController {
                 alunoService.listarTodosAlunos();
                 break;
             case 2:
-                int idProcurado = MenuPrincipal.lerNumerosInteiros("Digite o ID do aluno que deseja procurar:\n");
+                int idProcurado = LeitorEntrada.lerNumerosInteiros("Digite o ID do aluno que deseja procurar:\n");
                mostrarBusca(alunoService.buscarPorId(idProcurado));
                 break;
             case 3:
-                String cpfProcurado = MenuPrincipal.lerCpf("Digite o CPF do aluno que deseja procurar:\n");
+                String cpfProcurado = LeitorEntrada.lerCpf("Digite o CPF do aluno que deseja procurar:\n");
                 mostrarBusca(alunoService.buscarPorCpf(cpfProcurado));
                 break;
             case 4:
-                String nomeProcurado = MenuPrincipal.lerNomes("Digite o Nome do aluno que deseja procurar:\n");
+                String nomeProcurado = LeitorEntrada.lerNomes("Digite o Nome do aluno que deseja procurar:\n");
                mostrarBusca(alunoService.buscarPorNome(nomeProcurado));
                 break;
             case 5:
-                String cpfRemover = MenuPrincipal.lerCpf("Digite o CPF do aluno que deseja remover:\n");
+                String cpfRemover = LeitorEntrada.lerCpf("Digite o CPF do aluno que deseja remover:\n");
                if (alunoService.removerAlunoPorCpf(cpfRemover)){
                    System.out.println("Aluno removido!");
                }else {
@@ -60,7 +60,7 @@ public class GerenteController {
                }
                 break;
             case 6:
-                String planoProcurado = MenuPrincipal.lerNomes("Digite o nome do Plano que deseja procurar:\n");
+                String planoProcurado = LeitorEntrada.lerNomes("Digite o nome do Plano que deseja procurar:\n");
                 mostrarBuscaLista(alunoService.buscarPeloTipoPlano(TipoPlano.valueOf(planoProcurado.toUpperCase())));
                 break;
             case 7:

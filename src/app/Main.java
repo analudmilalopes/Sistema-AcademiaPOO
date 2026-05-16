@@ -4,10 +4,7 @@ import controller.TelaSecundaria;
 import controller.TelaTerciaria;
 import controller.GerenteController;
 import model.Gerente;
-import repository.AlunoRepository;
-import repository.AlunoRepositoryMemory;
-import repository.PlanoRepository;
-import repository.PlanoRepositoryMemory;
+import repository.*;
 import service.AlunoService;
 import service.PlanoService;
 
@@ -25,11 +22,11 @@ public class Main {
 
         Gerente gerente = new Gerente("Ludmila", "12345678910");
         GerenteController gerenteController = new GerenteController(gerente, alunoService);
+        PagamentoRepository pagamentoRepository = new PagamentoRepository();
 
-
-        TelaTerciaria telaTerciaria = new TelaTerciaria(alunoService);
+        TelaTerciaria telaTerciaria = new TelaTerciaria(alunoService, pagamentoRepository);
         TelaSecundaria telaSecundaria = new TelaSecundaria(planoService);
-        TelaInicial telaInicial = new TelaInicial(alunoService, gerenteController, planoService, telaSecundaria, telaTerciaria);
+        TelaInicial telaInicial = new TelaInicial(alunoService, gerenteController, planoService, telaSecundaria, telaTerciaria, pagamentoRepository);
 
         telaInicial.opcoesMenu();
 
