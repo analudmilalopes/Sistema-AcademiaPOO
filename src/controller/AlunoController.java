@@ -21,40 +21,41 @@ public class AlunoController {
     }
     public void TelaAluno(){
 
-        int opcoesAluno;
+        while (true) {
+            int opcoesAluno;
 
-        do {
+            do {
 
-            opcoesAluno = LeitorEntrada.lerNumerosInteiros("1 - Ver meus treinos\n" +
-                    "2 - Ver meu IMC\n" + "3 - Ver dados do pagamento\n"
-                    + "4 - Sair");
+                opcoesAluno = LeitorEntrada.lerNumerosInteiros("1 - Ver meus treinos\n" +
+                        "2 - Ver meu IMC\n" + "3 - Ver dados do pagamento\n"
+                        + "4 - Sair");
 
-            if (opcoesAluno >=1 && opcoesAluno <= 4){
-                break;
-            }else {
-                System.out.println("Escolha uma das 4 opções!");
+                if (opcoesAluno >= 1 && opcoesAluno <= 4) {
+                    break;
+                } else {
+                    System.out.println("Escolha uma das 4 opções!");
+                }
+            } while (opcoesAluno != 0);
+
+            switch (opcoesAluno) {
+                case 1:
+                    treinosDaSemana(aluno.getPlano().getTipoPlano());
+                    break;
+                case 2:
+                    verIMC(aluno);
+                    break;
+                case 3:
+                    verPagamento(pagamentoRepository.buscarPorCpf(aluno.getCpf()));
+                    break;
+                case 4:
+                    System.out.println("Até logo!");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Apenas uma das 4 opções são válidas!");
+
             }
-        }while (opcoesAluno != 0);
-
-        switch (opcoesAluno){
-            case 1:
-                treinosDaSemana(aluno.getPlano().getTipoPlano());
-                break;
-            case 2:
-                verIMC(aluno);
-                break;
-            case 3:
-                verPagamento(pagamentoRepository.buscarPorCpf(aluno.getCpf()));
-                break;
-            case 4:
-                System.out.println("Até logo!");
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Apenas uma das 4 opções são válidas!");
-
         }
-
     }
 
     public void treinosDaSemana(TipoPlano tipoPlano){
