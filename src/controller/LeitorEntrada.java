@@ -2,7 +2,7 @@ package controller;
 
 import java.util.Scanner;
 
-public class MenuPrincipal {
+public class LeitorEntrada {
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -17,6 +17,20 @@ public class MenuPrincipal {
                 // a entrada so pode ser numero inteiro, nada de double ou string
             } catch (NumberFormatException e) {
                 System.err.println("Somente números");
+            }
+        }
+    }
+
+    public static double lerNumerosQuebrados(String mensagemUsuario) {
+        while (true){
+            System.out.println(mensagemUsuario);
+
+            String entradaMensagem = scanner.nextLine();
+
+            try {
+                return Double.parseDouble(entradaMensagem);
+            } catch (NumberFormatException e){
+                System.err.println("Use ponto para decimais! Exemplo: 1.20 ou 65.00");
             }
         }
     }
