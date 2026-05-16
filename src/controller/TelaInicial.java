@@ -62,9 +62,9 @@ public class TelaInicial {
 
         String cpf = LeitorEntrada.lerCpf("CPF:");
 
-        Double altura = LeitorEntrada.lerNumerosQuebrados("Altura:");
+        double altura = LeitorEntrada.lerNumerosQuebrados("Altura:");
 
-        Double peso = LeitorEntrada.lerNumerosQuebrados("Peso:");
+        double peso = LeitorEntrada.lerNumerosQuebrados("Peso:");
 
         int opcoesPlano = 0;
 
