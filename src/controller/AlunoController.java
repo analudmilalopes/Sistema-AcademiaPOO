@@ -1,0 +1,94 @@
+package controller;
+
+import enums.TipoPlano;
+import model.Aluno;
+import model.Pagamento;
+
+import java.util.Scanner;
+
+public class AlunoController {
+
+    Aluno aluno;
+    TipoPlano tipoPlano;
+    Pagamento pagamento;
+    Scanner scanner = new Scanner(System.in);
+
+    public AlunoController(Aluno aluno, Pagamento pagamento, TipoPlano tipoPlano){
+        this.aluno = aluno;
+        this.pagamento = pagamento;
+        this.tipoPlano = tipoPlano;
+    }
+    public void TelaAluno(){
+
+        int opcoesAluno;
+
+        do {
+
+            opcoesAluno = LeitorEntrada.lerNumerosInteiros("1 - Ver meus treinos\n" +
+                    "2 - Ver meu IMC\n" + "3 - Ver dados do pagamento\n"
+                    + "4 - Sair");
+
+            if (opcoesAluno >=1 && opcoesAluno <= 4){
+                break;
+            }else {
+                System.out.println("Escolha uma das 4 opções!");
+            }
+        }while (opcoesAluno != 0);
+
+        switch (opcoesAluno){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                System.out.println("Até logo!");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Apenas uma das 4 opções são válidas!");
+
+        }
+
+    }
+
+    public void treinosDaSemana(TipoPlano tipoPlano){
+        System.out.println("MEU TREINO");
+
+        switch (tipoPlano){
+            case MENSAL:
+                System.out.println("Segunda: Peito e Tríceps\n" +
+                        "Terça: Costas e Bíceps\n" +
+                        "Quarta: Descanso\n" +
+                        "Quinta: Pernas\n" +
+                        "Sexta: Ombro e Abdômen\n" +
+                        "Sábado: Cardio leve\n" +
+                        "Domingo: Descanso");
+                break;
+            case TRIMESTRAL:
+                System.out.println("Segunda: Peito, Tríceps e Ombro\n" +
+                    "Terça: Costas e Bíceps\n" +
+                    "Quarta: Pernas\n" +
+                    "Quinta: Peito e Tríceps\n" +
+                    "Sexta: Costas, Bíceps e Abdômen\n" +
+                    "Sábado: Cardio + Core\n" +
+                    "Domingo: Descanso");
+                break;
+            case ANUAL:
+                System.out.println("Segunda: Quadríceps e Posterior\n" +
+                    "Terça: Costas, Bíceps e Trapézio\n" +
+                    "Quarta: Pernas e Glúteos\n" +
+                    "Quinta: Peito e Ombro\n" +
+                    "Sexta: Costas e Bíceps\n" +
+                    "Sábado: Panturrilha, Abdômen e Cardio HIIT\n" +
+                    "Domingo: Descanso ativo com alongamento");
+                break;
+        }
+    }
+
+    public void verIMC(Aluno aluno){
+        aluno.getAltura()
+
+    }
+}
