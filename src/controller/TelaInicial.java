@@ -44,6 +44,7 @@ public class TelaInicial {
                 break;
             case 2:
                 login();
+                break;
             case 3:
                 System.out.println("Tchauzinho!!");
                 System.exit(0);
@@ -126,7 +127,7 @@ public class TelaInicial {
             } else {
                 Aluno aluno = alunoService.buscarPorCpf(cpfLogin);
                 if (aluno != null) {
-                    // abre a tela do aluno com as opcoes
+
                 } else {
                     System.out.println("CPF não encontrado no sistema!");
                 }
