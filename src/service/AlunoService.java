@@ -15,7 +15,7 @@ public class AlunoService {
         this.alunoRepository = alunoRepository;
     }
 
-        public void cadastrarTodosAlunos(String nome, String cpf, Plano plano) {
+        public void cadastrarTodosAlunos(String nome, String cpf, Plano plano, double altura, double peso) {
             List<Aluno> alunos = alunoRepository.listarTodos();
 
             for (Aluno aluno : alunos) {
@@ -25,7 +25,7 @@ public class AlunoService {
                 }
             }
 
-            Aluno aluno = new Aluno(nome, cpf, plano);
+            Aluno aluno = new Aluno(nome, cpf, plano, altura, peso);
             alunoRepository.cadastrarAluno(aluno);
         }
 
