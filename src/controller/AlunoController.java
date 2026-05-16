@@ -38,10 +38,13 @@ public class AlunoController {
 
         switch (opcoesAluno){
             case 1:
+                treinosDaSemana(aluno.getPlano().getTipoPlano());
                 break;
             case 2:
+                verIMC(aluno);
                 break;
             case 3:
+                verPagamento(pagamentoRepository.buscarPorCpf(aluno.getCpf()));
                 break;
             case 4:
                 System.out.println("Até logo!");
