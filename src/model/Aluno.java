@@ -8,10 +8,12 @@ public class Aluno extends Pessoa{
     private double altura;
 
 
-    public Aluno(String nome, String cpf, Plano plano){
+    public Aluno(String nome, String cpf, Plano plano, double peso, double altura){
         super(nome, cpf);
         this.alunoID = contarId++;
         this.plano = plano;
+        this.peso = peso;
+        this.altura = altura;
     }
 
     public int getAlunoID(){

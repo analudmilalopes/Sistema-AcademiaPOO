@@ -29,7 +29,7 @@ public class TelaInicial {
     public void opcoesMenu(){
 
         do {
-            opcoes = MenuPrincipal.lerNumerosInteiros("1 - Cadastrar | 2 - Login | 3 - Sair");
+            opcoes = LeitorEntrada.lerNumerosInteiros("1 - Cadastrar | 2 - Login | 3 - Sair");
 
             if (opcoes >= 1 && opcoes <= 3){
                 break;
@@ -58,9 +58,13 @@ public class TelaInicial {
     public void criarConta(){
 
         // aqui eu uso a classe menu principal com o try catch e chamo os metodos aqui, ao inves de ficar criando println
-        String nome = MenuPrincipal.lerNomes("Nome: ");
+        String nome = LeitorEntrada.lerNomes("Nome:");
 
-        String cpf = MenuPrincipal.lerCpf("CPF: ");
+        String cpf = LeitorEntrada.lerCpf("CPF:");
+
+        Double altura = LeitorEntrada.lerNumerosQuebrados("Altura:");
+
+        Double peso = LeitorEntrada.lerNumerosQuebrados("Peso:");
 
         int opcoesPlano = 0;
 
@@ -70,7 +74,7 @@ public class TelaInicial {
             // aqui vai mostrar a lista com cada plano, valor e duracao. ai a pessoa tb vai escolher um dos 3 planos
             System.out.println("Qual plano deseja?");
             do {
-                opcoesPlano = MenuPrincipal.lerNumerosInteiros("1 - MENSAL\n" +
+                opcoesPlano = LeitorEntrada.lerNumerosInteiros("1 - MENSAL\n" +
                         "2 - TRIMESTRAL\n" + "3 - ANUAL\n" + "4 - Ver todos os planos\n" + "5 - Sair");
 
 
@@ -119,8 +123,8 @@ public class TelaInicial {
     public void login() {
         while (true) {
 
-            String nomeLogin = MenuPrincipal.lerNomes("Nome: ");
-            String cpfLogin = MenuPrincipal.lerCpf("CPF: ");
+            String nomeLogin = LeitorEntrada.lerNomes("Nome: ");
+            String cpfLogin = LeitorEntrada.lerCpf("CPF: ");
             if (cpfLogin.equals("12345678910") && nomeLogin.equalsIgnoreCase("Ludmila")) {
                 gerenteController.TelaGerente();
                 break;
