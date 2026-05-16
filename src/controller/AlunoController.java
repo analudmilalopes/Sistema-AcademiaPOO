@@ -88,7 +88,22 @@ public class AlunoController {
     }
 
     public void verIMC(Aluno aluno){
-        aluno.getAltura()
+        double IMC = aluno.getPeso()
+                / (aluno.getAltura() * aluno.getAltura());
+
+        if (IMC < 18.5){
+            System.out.printf("IMC = %.2f, você está abaixo do peso.%n", IMC);
+        } else if (IMC <= 24.9) {
+            System.out.printf("IMC = %.2f, você está com o peso normal.%n", IMC);
+        } else if (IMC <= 29.9) {
+            System.out.printf("IMC = %.2f, você está sobrepeso.%n", IMC);
+        }else if (IMC <= 34.9){
+            System.out.printf("IMC = %.2f, você está com obesidade grau 1.%n", IMC);
+        } else if (IMC <= 39.9) {
+            System.out.printf("IMC = %.2f, você está com obesidade grau 2.%n", IMC);
+        }else {
+            System.out.printf("IMC = %.2f, você está com obesidade grau 3.%n", IMC);
+        }
 
     }
 }
