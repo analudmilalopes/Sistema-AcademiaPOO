@@ -18,14 +18,13 @@
         }
 
 
-        // para mostrar no nosso termo de consentimento, pegamos o plano que o cliente escolheu e o seu nome.
-        public boolean menuSecundario(Plano plano, String nome, String cpf) {
+        public boolean menuSecundario(Plano plano, String nome, String cpf, double altura, double peso) {
             int opcoes = 0;
 
             double total = plano.getValor() + plano.getTaxaMatricula();
-            System.out.println("Deseja prosseguir o pagamento de R$" + total + "?");
+            System.out.println("Deseja prosseguir o pagamento de R$" + total + " reais?");
             do {
-                opcoes = MenuPrincipal.lerNumerosInteiros(" 1 - Pagar | 2 - Voltar | 3 - Sair");
+                opcoes = LeitorEntrada.lerNumerosInteiros(" 1 - Pagar | 2 - Voltar | 3 - Sair");
 
                 if (opcoes >= 1 && opcoes <= 3) {
                     break;
@@ -36,7 +35,7 @@
 
             switch (opcoes) {
                 case 1:
-                return pagarPlano(nome, cpf, plano, metodoPagamento);
+                return pagarPlano(nome, cpf, plano, metodoPagamento, altura, peso);
                 case 2:
                   return false;
                 case 3:
@@ -48,13 +47,13 @@
             }
             return false;
         }
-        public boolean pagarPlano(String nome, String cpf, Plano plano, MetodoPagamento metodoPagamento){
+        public boolean pagarPlano(String nome, String cpf, Plano plano, MetodoPagamento metodoPagamento, double altura, double peso){
 
             int opcoesPagamento = 0;
             System.out.println("-------- MÉTODOS DE PAGAMENTO --------\n");
 
             do {
-                opcoesPagamento = MenuPrincipal.lerNumerosInteiros("1 - CARTÃO DE CRÉDITO/DÉBITO\n" +
+                opcoesPagamento = LeitorEntrada.lerNumerosInteiros("1 - CARTÃO DE CRÉDITO/DÉBITO\n" +
                         "2 - DINHEIRO\n" + "3 - PIX");
 
                 if (opcoesPagamento >=1 && opcoesPagamento <=3){
@@ -67,16 +66,16 @@
 
             switch (opcoesPagamento){
                 case 1:
-                return mostrarTermo(nome, cpf, plano, MetodoPagamento.CARTAO);
+                return mostrarTermo(nome, cpf, plano, MetodoPagamento.CARTAO, altura, peso);
                 case 2:
-                return mostrarTermo(nome, cpf, plano, MetodoPagamento.DINHEIRO);
+                return mostrarTermo(nome, cpf, plano, MetodoPagamento.DINHEIRO, altura, peso);
                 case 3:
-                return mostrarTermo(nome, cpf, plano, MetodoPagamento.PIX);
+                return mostrarTermo(nome, cpf, plano, MetodoPagamento.PIX, altura, peso);
                 }
                 return false;
             }
 
-            public boolean mostrarTermo(String nome, String cpf, Plano plano, MetodoPagamento metodoPagamento){
+            public boolean mostrarTermo(String nome, String cpf, Plano plano, MetodoPagamento metodoPagamento, double altura, double peso){
                 double total = plano.getValor() + plano.getTaxaMatricula();
                 System.out.println("-------------------------------------------------");
                 System.out.println("       TERMO DE ADESÃO - ACADEMIA MONSTERS       ");
@@ -111,10 +110,10 @@
                         "================================================\n" +
                         "\n");
 
-                int confirmarPagamento = MenuPrincipal.lerNumerosInteiros("1 - CONTINUAR PAGAMENTO | 2 - CANCELAR\n");
+                int confirmarPagamento = LeitorEntrada.lerNumerosInteiros("1 - CONTINUAR PAGAMENTO | 2 - CANCELAR\n");
                 if (confirmarPagamento == 1){
                     System.out.println("Pagamento de R$" + total + " efetuado no " + metodoPagamento.name() + "! Bom treino! \uD83D\uDE09");
-                    alunoService.cadastrarTodosAlunos(nome, cpf, plano);
+                    alunoService.cadastrarTodosAlunos(nome, cpf, plano, altura, peso);
                     return true;
                 }else {
                     return false;
