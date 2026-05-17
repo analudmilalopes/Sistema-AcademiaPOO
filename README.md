@@ -62,3 +62,15 @@ Desenvolvimento inicial do sistema com foco em praticar conceitos de POO.
 * Implementação de busca de alunos por tipo de plano
 * Uso de `Stream`
 * Melhorias visuais no menu do gerente
+
+**16/Mai/2026: Criação e correções**
+
+* Criação do `AlunoController`
+* Criação do `PagamentoRepository`
+* Implementação do cálculo de IMC
+* Adição de peso e altura no cadastro do aluno
+* Ajuste do fluxo de cadastro e pagamento
+* Implementação de loops no controller do gerente
+* Correção de bugs nos menus
+* Correção de `switch case`
+* Refatoração da leitura de entrada
