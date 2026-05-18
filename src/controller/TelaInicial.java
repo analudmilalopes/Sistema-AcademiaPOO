@@ -61,17 +61,15 @@ public class TelaInicial {
 
     public void criarConta(){
 
-        // aqui eu uso a classe menu principal com o try catch e chamo os metodos aqui, ao inves de ficar criando println
         String nome = LeitorEntrada.lerNomes("Nome:");
-
         String cpf = LeitorEntrada.lerCpf("CPF:");
 
-        double altura = LeitorEntrada.lerNumerosQuebrados("Altura:");
+        scanner.nextLine();
 
+        double altura = LeitorEntrada.lerNumerosQuebrados("Altura:");
         double peso = LeitorEntrada.lerNumerosQuebrados("Peso:");
 
         int opcoesPlano = 0;
-
 
         boolean pagamentoFoiEfetuado = false;
         while (!pagamentoFoiEfetuado) {
@@ -118,7 +116,6 @@ public class TelaInicial {
 
         }
         if (pagamentoFoiEfetuado) {
-            System.out.println("Cadastro realizado " + nome + "!");
             System.out.println("Faça o login.");
             login();
         }
@@ -138,8 +135,9 @@ public class TelaInicial {
                 if (aluno != null) {
                     AlunoController alunoController = new AlunoController(aluno, pagamentoRepository);
                     alunoController.TelaAluno();
+                    break;
                 } else {
-                    System.out.println("CPF não encontrado no sistema!");
+                    System.out.println("Nome ou CPF não encontrado no sistema!");
                 }
             }
 
