@@ -64,8 +64,6 @@ public class TelaInicial {
         String nome = LeitorEntrada.lerNomes("Nome:");
         String cpf = LeitorEntrada.lerCpf("CPF:");
 
-        scanner.nextLine();
-
         double altura = LeitorEntrada.lerNumerosQuebrados("Altura:");
         double peso = LeitorEntrada.lerNumerosQuebrados("Peso:");
 
