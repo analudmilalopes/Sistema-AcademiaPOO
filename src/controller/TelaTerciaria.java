@@ -25,7 +25,7 @@
         }
 
 
-        public boolean menuSecundario(Plano plano, String nome, String cpf, double altura, double peso) {
+        public boolean menuSecundario(Plano plano, String nome, String cpf, double peso, double altura) {
             int opcoes = 0;
 
             double total = plano.getValor() + plano.getTaxaMatricula();
@@ -42,7 +42,7 @@
 
             switch (opcoes) {
                 case 1:
-                return pagarPlano(nome, cpf, plano, metodoPagamento, altura, peso);
+                return pagarPlano(nome, cpf, plano, metodoPagamento, peso, altura);
                 case 2:
                   return false;
                 case 3:
@@ -54,7 +54,7 @@
             }
             return false;
         }
-        public boolean pagarPlano(String nome, String cpf, Plano plano, MetodoPagamento metodoPagamento, double altura, double peso){
+        public boolean pagarPlano(String nome, String cpf, Plano plano, MetodoPagamento metodoPagamento, double peso, double altura){
 
             int opcoesPagamento = 0;
             System.out.println("-------- MÉTODOS DE PAGAMENTO --------\n");
@@ -73,16 +73,16 @@
 
             switch (opcoesPagamento){
                 case 1:
-                return mostrarTermo(nome, cpf, plano, MetodoPagamento.CARTAO, altura, peso);
+                return mostrarTermo(nome, cpf, plano, MetodoPagamento.CARTAO, peso, altura);
                 case 2:
-                return mostrarTermo(nome, cpf, plano, MetodoPagamento.DINHEIRO, altura, peso);
+                return mostrarTermo(nome, cpf, plano, MetodoPagamento.DINHEIRO, peso, altura);
                 case 3:
-                return mostrarTermo(nome, cpf, plano, MetodoPagamento.PIX, altura, peso);
+                return mostrarTermo(nome, cpf, plano, MetodoPagamento.PIX, peso, altura);
                 }
                 return false;
             }
 
-            public boolean mostrarTermo(String nome, String cpf, Plano plano, MetodoPagamento metodoPagamento, double altura, double peso){
+            public boolean mostrarTermo(String nome, String cpf, Plano plano, MetodoPagamento metodoPagamento, double peso, double altura){
                 double total = plano.getValor() + plano.getTaxaMatricula();
                 System.out.println("-------------------------------------------------");
                 System.out.println("       TERMO DE ADESÃO - ACADEMIA MONSTERS       ");
@@ -119,7 +119,7 @@
 
                 int confirmarPagamento = LeitorEntrada.lerNumerosInteiros("1 - CONTINUAR PAGAMENTO | 2 - CANCELAR\n");
                 if (confirmarPagamento == 1){
-                    alunoService.cadastrarTodosAlunos(nome, cpf, plano, altura, peso);
+                    alunoService.cadastrarTodosAlunos(nome, cpf, plano, peso, altura);
                     Aluno aluno = alunoService.buscarPorCpf(cpf);
                     Pagamento pagamento = new Pagamento(aluno, total, metodoPagamento, LocalDate.now());
                     System.out.println("Pagamento efetuado! Bom treino! \uD83D\uDE09");
