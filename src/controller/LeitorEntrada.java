@@ -40,12 +40,19 @@ public class LeitorEntrada {
 
         while (true) {
             System.out.println(entradaUsuario);
+            String entradaMensagem = scanner.nextLine().trim();
 
-            String entradaMensagem = scanner.nextLine();
-            if (entradaMensagem.matches("[a-zA-Z ]+")) {
-                return entradaMensagem;
-            } else {
-                System.out.println("Somente letras.");
+            try {
+            if (entradaMensagem.isEmpty()){
+                throw new NumberFormatException("Nome não pode estar vazio.");
+            } if (!entradaMensagem.matches("[a-zA-ZÀ-ÿ ]+")) {
+                throw new NumberFormatException("Somente letras.");
+            }
+
+            return entradaMensagem;
+
+            } catch (NumberFormatException e){
+                System.err.println(e.getMessage());
             }
         }
     }
