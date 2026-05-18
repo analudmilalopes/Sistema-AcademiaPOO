@@ -98,6 +98,7 @@ public class AlunoController {
 
         if (IMC < 18.5){
             System.out.printf("IMC = %.2f, você está abaixo do peso.%n", IMC);
+
         } else if (IMC <= 24.9) {
             System.out.printf("IMC = %.2f, você está com o peso normal.%n", IMC);
         } else if (IMC <= 29.9) {
@@ -110,7 +111,9 @@ public class AlunoController {
             System.out.printf("IMC = %.2f, você está com obesidade grau 3.%n", IMC);
         }
 
+        //
     }
+
 
     public void verPagamento(Pagamento pagamento){
 
