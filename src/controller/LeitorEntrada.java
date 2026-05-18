@@ -67,7 +67,7 @@ public class LeitorEntrada {
             if (entradaMensagem.matches("\\d{11}")){
                 return entradaMensagem;
             }else {
-                System.out.println("CPF inválido!");
+                System.err.println("CPF inválido!");
             }
         }
     }
