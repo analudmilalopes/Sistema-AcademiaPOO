@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class LeitorEntrada {
@@ -25,13 +26,16 @@ public class LeitorEntrada {
 
         while (true){
             System.out.println(mensagemUsuario);
-
-            String entradaMensagem = scanner.nextLine();
+            String entradaMensagem = scanner.nextLine().trim();
 
             try {
-                return Double.parseDouble(entradaMensagem);
-            } catch (NumberFormatException e){
-                System.err.println("Use ponto para decimais! Exemplo: 1.20 ou 65.00");
+               if (!entradaMensagem.contains(".")) {
+                   throw new NumberFormatException();
+               }
+                   return Double.parseDouble(entradaMensagem);
+
+            }catch (NumberFormatException e){
+                System.err.println("Use ponto para decimais! Exemplo: 1.70 ou 65.00");
             }
         }
     }
