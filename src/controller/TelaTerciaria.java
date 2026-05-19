@@ -122,6 +122,7 @@
                     alunoService.cadastrarTodosAlunos(nome, cpf, plano, peso, altura);
                     Aluno aluno = alunoService.buscarPorCpf(cpf);
                     Pagamento pagamento = new Pagamento(aluno, total, metodoPagamento, LocalDate.now());
+                    pagamentoRepository.adicionarPagamento(pagamento);
                     System.out.println("Pagamento efetuado! Bom treino! \uD83D\uDE09");
                     return true;
                 }else {
