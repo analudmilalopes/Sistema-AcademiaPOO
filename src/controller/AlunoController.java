@@ -43,6 +43,7 @@ public class AlunoController {
                     break;
                 case 2:
                     verIMC(aluno);
+                    imcAlto(aluno);
                     break;
                 case 3:
                     verPagamento(pagamentoRepository.buscarPorCpf(aluno.getCpf()));
@@ -114,7 +115,7 @@ public class AlunoController {
         //
     }
 
-    public void ImcAlto(Aluno aluno){
+    public void imcAlto(Aluno aluno){
         double IMC = aluno.getPeso() / (aluno.getAltura() * aluno.getAltura());
 
         if (IMC > 29.9 && IMC <= 34.9) {
@@ -130,6 +131,11 @@ public class AlunoController {
     }
 
     public void verPagamento(Pagamento pagamento){
+        System.out.println("-------- \uD83D\uDCB3 DADOS DO PAGAMENTO --------");
+        System.out.println("Plano: " + pagamento.getAluno().getPlano());
+        System.out.println("Valor pago: " + pagamento.getValorPagamento());
+        System.out.println("Método de pagamento: " + pagamento.getMetodoPagamento());
+        System.out.println("Data: " + pagamento.getDataPagamento());
 
     }
 }
