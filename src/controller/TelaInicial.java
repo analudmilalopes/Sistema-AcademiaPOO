@@ -17,10 +17,12 @@ public class TelaInicial {
     AlunoService alunoService;
     PlanoService planoService;
     GerenteController gerenteController;
+    RecepcionistaController recepcionistaController;
     TelaSecundaria telaSecundaria;
     TelaTerciaria telaTerciaria;
     PagamentoRepository pagamentoRepository;
-    public TelaInicial(AlunoService alunoService, GerenteController gerenteController, PlanoService planoService,
+    public TelaInicial(AlunoService alunoService, GerenteController gerenteController,
+                       RecepcionistaController recepcionistaController, PlanoService planoService,
                        TelaSecundaria telaSecundaria, TelaTerciaria telaTerciaria, PagamentoRepository pagamentoRepository){
         this.alunoService = alunoService;
         this.gerenteController = gerenteController;
@@ -127,6 +129,9 @@ public class TelaInicial {
             String cpfLogin = LeitorEntrada.lerCpf("CPF: ");
             if (cpfLogin.equals("12345678910") && nomeLogin.equalsIgnoreCase("Ludmila")) {
                 gerenteController.TelaGerente();
+                break;
+            } else if (cpfLogin.equals("98765432100") && nomeLogin.equalsIgnoreCase("Maria")) {
+                recepcionistaController.TelaRecepcionista();
                 break;
             } else {
                 Aluno aluno = alunoService.buscarPorCpf(cpfLogin);
