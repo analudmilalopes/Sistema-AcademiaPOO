@@ -60,35 +60,43 @@ public class AlunoController {
     }
 
     public void treinosDaSemana(TipoPlano tipoPlano){
-        System.out.println("MEU TREINO");
+        System.out.println("     🏋️  MEU TREINO SEMANAL       ");
+
 
         switch (tipoPlano){
             case MENSAL:
-                System.out.println("Segunda: Peito e Tríceps\n" +
-                        "Terça: Costas e Bíceps\n" +
-                        "Quarta: Descanso\n" +
-                        "Quinta: Pernas\n" +
-                        "Sexta: Ombro e Abdômen\n" +
-                        "Sábado: Cardio leve\n" +
-                        "Domingo: Descanso");
+                System.out.println("╔══════════════════════════════════════╗");
+                System.out.println("║   SEGUNDA: Peito e Tríceps           ║");
+                System.out.println("║   TERÇA:   Costas e Bíceps           ║");
+                System.out.println("║   QUARTA:  Descanso                  ║");
+                System.out.println("║   QUINTA:  Pernas                    ║");
+                System.out.println("║   SEXTA:   Ombro e Abdômen           ║");
+                System.out.println("║   SÁBADO:  Cardio leve               ║");
+                System.out.println("║   DOMINGO: Descanso                  ║");
+                System.out.println("╚══════════════════════════════════════╝\n");
                 break;
             case TRIMESTRAL:
-                System.out.println("Segunda: Peito, Tríceps e Ombro\n" +
-                    "Terça: Costas e Bíceps\n" +
-                    "Quarta: Pernas\n" +
-                    "Quinta: Peito e Tríceps\n" +
-                    "Sexta: Costas, Bíceps e Abdômen\n" +
-                    "Sábado: Cardio + Core\n" +
-                    "Domingo: Descanso");
+                System.out.println("╔═════════════════════════════════════╗");
+                System.out.println("║   SEGUNDA: Peito, Tríceps e Ombro   ║");
+                System.out.println("║   TERÇA:   Costas e Bíceps          ║");
+                System.out.println("║   QUARTA:  Pernas                   ║");
+                System.out.println("║   QUINTA:  Peito e Tríceps          ║");
+                System.out.println("║   SEXTA:   Costas, Bíceps e Abdômen ║");
+                System.out.println("║   SÁBADO:  Cardio + Core            ║");
+                System.out.println("║   DOMINGO: Descanso                 ║");
+                System.out.println("╚═════════════════════════════════════╝\n");
                 break;
             case ANUAL:
-                System.out.println("Segunda: Quadríceps e Posterior\n" +
-                    "Terça: Costas, Bíceps e Trapézio\n" +
-                    "Quarta: Pernas e Glúteos\n" +
-                    "Quinta: Peito e Ombro\n" +
-                    "Sexta: Costas e Bíceps\n" +
-                    "Sábado: Panturrilha, Abdômen e Cardio HIIT\n" +
-                    "Domingo: Descanso ativo com alongamento");
+                System.out.println("╔═════════════════════════════════════╗");
+                System.out.println("║   SEGUNDA: Quadríceps e Posterior   ║");
+                System.out.println("║   TERÇA:   Costas, Bíceps e Trapézio║");
+                System.out.println("║   QUARTA:  Pernas e Glúteos         ║");
+                System.out.println("║   QUINTA:  Peito e Ombro            ║");
+                System.out.println("║   SEXTA:   Costas e Bíceps          ║");
+                System.out.println("║   SÁBADO:  Panturrilha, Abdômen     ║");
+                System.out.println("║            e Cardio HIIT            ║");
+                System.out.println("║   DOMINGO: Descanso com alongamento ║");
+                System.out.println("╚═════════════════════════════════════╝\n");
                 break;
         }
     }
@@ -131,11 +139,13 @@ public class AlunoController {
     }
 
     public void verPagamento(Pagamento pagamento){
-        System.out.println("-------- \uD83D\uDCB3 DADOS DO PAGAMENTO --------");
-        System.out.println("Plano: " + pagamento.getAluno().getPlano().getTipoPlano().name());
-        System.out.println("Valor pago: " + pagamento.getValorPagamento());
-        System.out.println("Método de pagamento: " + pagamento.getMetodoPagamento());
-        System.out.println("Data: " + pagamento.getDataPagamento());
-
+        System.out.println("\n╔═══════════════════════════════════════╗");
+        System.out.println("║        💳 DADOS DO PAGAMENTO          ║");
+        System.out.println("╠═══════════════════════════════════════╣");
+        System.out.println("║  Plano:        " + pagamento.getAluno().getPlano().getTipoPlano().name());
+        System.out.printf( "║  Valor pago:   R$ %.2f%n", pagamento.getValorPagamento());
+        System.out.println("║  Método:       " + pagamento.getMetodoPagamento().name());
+        System.out.println("║  Data:         " + pagamento.getDataPagamento());
+        System.out.println("╚═══════════════════════════════════════╝\n");
     }
 }
