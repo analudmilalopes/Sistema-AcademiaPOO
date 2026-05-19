@@ -132,7 +132,7 @@ public class AlunoController {
 
     public void verPagamento(Pagamento pagamento){
         System.out.println("-------- \uD83D\uDCB3 DADOS DO PAGAMENTO --------");
-        System.out.println("Plano: " + pagamento.getAluno().getPlano());
+        System.out.println("Plano: " + pagamento.getAluno().getPlano().getTipoPlano().name());
         System.out.println("Valor pago: " + pagamento.getValorPagamento());
         System.out.println("Método de pagamento: " + pagamento.getMetodoPagamento());
         System.out.println("Data: " + pagamento.getDataPagamento());
