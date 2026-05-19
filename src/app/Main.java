@@ -1,9 +1,7 @@
 package app;
-import controller.TelaInicial;
-import controller.TelaSecundaria;
-import controller.TelaTerciaria;
-import controller.GerenteController;
+import controller.*;
 import model.Gerente;
+import model.Recepcionista;
 import repository.*;
 import service.AlunoService;
 import service.PlanoService;
@@ -21,12 +19,15 @@ public class Main {
         PlanoService planoService = new PlanoService(planoRepo);
 
         Gerente gerente = new Gerente("Ludmila", "12345678910");
+        Recepcionista recepcionista = new Recepcionista("Maria", "98765432100");
         GerenteController gerenteController = new GerenteController(gerente, alunoService);
+
+        RecepcionistaController recepcionistaController = new RecepcionistaController(recepcionista, alunoService);
         PagamentoRepository pagamentoRepository = new PagamentoRepository();
 
         TelaTerciaria telaTerciaria = new TelaTerciaria(alunoService, pagamentoRepository);
         TelaSecundaria telaSecundaria = new TelaSecundaria(planoService);
-        TelaInicial telaInicial = new TelaInicial(alunoService, gerenteController, planoService, telaSecundaria, telaTerciaria, pagamentoRepository);
+        TelaInicial telaInicial = new TelaInicial(alunoService, gerenteController, recepcionistaController, planoService, telaSecundaria, telaTerciaria, pagamentoRepository);
 
         telaInicial.opcoesMenu();
 
