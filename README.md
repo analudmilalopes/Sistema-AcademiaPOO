@@ -74,3 +74,7 @@ Desenvolvimento inicial do sistema com foco em praticar conceitos de POO.
 * Correção de bugs nos menus
 * Correção de `switch case`
 * Refatoração da leitura de entrada
+
+**18/Mai/2026: Correções de validação e bugs**
+* Correção do cálculo de IMC
+* Melhorias na validação de nomes e números decimais
