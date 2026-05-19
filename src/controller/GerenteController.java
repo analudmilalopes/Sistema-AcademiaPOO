@@ -67,7 +67,7 @@ public class GerenteController {
                 case 7:
                    return;
                 default:
-                    System.out.println("Apenas uma das 6 opções são válidas!");
+                    System.err.println("Apenas uma das 6 opções são válidas!");
             }
         }
     }
@@ -79,13 +79,13 @@ public class GerenteController {
             System.out.println("CPF: " + aluno.getCpf());
             System.out.println("Plano: " + aluno.getPlano().getTipoPlano().name());
         } else {
-            System.out.println("Aluno não encontrado!");
+            System.err.println("Aluno não encontrado!");
         }
     }
 
     public void mostrarBuscaLista(List<Aluno> alunos){
         if (alunos.isEmpty()){
-            System.out.println("Nenhum aluno foi encontrado.");
+            System.err.println("Nenhum aluno foi encontrado.");
             return;
         }
         for (Aluno aluno : alunos){
