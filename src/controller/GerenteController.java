@@ -77,7 +77,7 @@ public class GerenteController {
             System.out.println("ID: " + aluno.getAlunoID());
             System.out.println("Nome: " + aluno.getNome());
             System.out.println("CPF: " + aluno.getCpf());
-            System.out.println("Plano: " + aluno.getPlano().getTipoPlano());
+            System.out.println("Plano: " + aluno.getPlano().getTipoPlano().name());
         } else {
             System.out.println("Aluno não encontrado!");
         }
