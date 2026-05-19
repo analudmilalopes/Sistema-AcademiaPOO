@@ -114,6 +114,20 @@ public class AlunoController {
         //
     }
 
+    public void ImcAlto(Aluno aluno){
+        double IMC = aluno.getPeso() / (aluno.getAltura() * aluno.getAltura());
+
+        if (IMC > 29.9 && IMC <= 34.9) {
+            System.out.println("Recomendação: Devido ao seu IMC alto," +
+                    " é indicado aumentar mais 20 minutos no seu cardio e fazer déficit calórico!");
+        } else if (IMC <= 39.9) {
+            System.out.println("Recomendação: Devido ao seu IMC alto," +
+                    " é indicado aumentar mais 30 minutos no seu cardio e fazer déficit calórico!");
+        } else {
+            System.out.println("Recomendação: Devido ao seu IMC alto," +
+                    " é indicado aumentar mais 35 minutos no seu cardio e fazer déficit calórico!");
+        }
+    }
 
     public void verPagamento(Pagamento pagamento){
 
