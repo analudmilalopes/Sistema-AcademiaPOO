@@ -89,17 +89,17 @@ public class TelaInicial {
                 case 1:
                     Plano planoMensal = planoService.buscarPorTipoPlano(TipoPlano.MENSAL);
                     telaSecundaria.mostrarPlano(TipoPlano.MENSAL);
-                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoMensal, nome, cpf, altura, peso);
+                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoMensal, nome, cpf, peso, altura);
                     break;
                 case 2:
                     Plano planoTrimestral = planoService.buscarPorTipoPlano(TipoPlano.TRIMESTRAL);
                     telaSecundaria.mostrarPlano(TipoPlano.TRIMESTRAL);
-                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoTrimestral, nome, cpf, altura, peso);
+                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoTrimestral, nome, cpf, peso, altura);
                     break;
                 case 3:
                     Plano planoAnual = planoService.buscarPorTipoPlano(TipoPlano.ANUAL);
                     telaSecundaria.mostrarPlano(TipoPlano.ANUAL);
-                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoAnual, nome, cpf, altura, peso);
+                    pagamentoFoiEfetuado = telaTerciaria.menuSecundario(planoAnual, nome, cpf, peso, altura);
                     break;
                 case 4:
                     planoService.listaTodosPlanos();
