@@ -117,10 +117,8 @@ public class TelaInicial {
             }
 
         }
-        if (pagamentoFoiEfetuado) {
             System.out.println("Faça o login.");
             login();
-        }
     }
 
 
