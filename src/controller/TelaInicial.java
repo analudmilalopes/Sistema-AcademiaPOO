@@ -142,7 +142,7 @@ public class TelaInicial {
                     alunoController.TelaAluno();
                     break;
                 } else {
-                    System.err.println("Nome ou CPF inválidos.");
+                    System.err.println("Nome e/ou CPF inválido.");
                 }
             }
 
