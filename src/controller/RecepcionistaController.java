@@ -51,6 +51,7 @@ public class RecepcionistaController {
                     } else {
                         System.err.println("Aluno não encontrado no sistema!");
                     }
+                    break;
                 case 5:
                     return;
                 default:
