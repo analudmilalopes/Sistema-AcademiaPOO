@@ -74,11 +74,12 @@ public class GerenteController {
 
     public void mostrarBusca(Aluno aluno){;
         if (aluno != null){
-            System.out.println("          👤 DADOS DO ALUNO            ");
+            System.out.println("👤 DADOS DO ALUNO  ");
             System.out.println("ID:   " + aluno.getAlunoID());
             System.out.println("Nome:   " + aluno.getNome());
             System.out.println("CPF:   " + aluno.getCpf());
             System.out.println("Plano:   " + aluno.getPlano().getTipoPlano().name());
+            System.out.println("\n");
         } else {
             System.err.println("Aluno não encontrado!");
         }
