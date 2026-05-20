@@ -37,7 +37,7 @@ public class AlunoService {
                     aluno.getAlunoID() + "\n" +
                     "Nome: " + aluno.getNome() + "\n" +
                     "CPF: " + aluno.getCpf() + "\n" +
-                    "Plano " + aluno.getPlano());
+                    "Plano " + aluno.getPlano().getTipoPlano().name());
         }
     }
 
