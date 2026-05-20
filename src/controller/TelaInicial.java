@@ -35,31 +35,32 @@ public class TelaInicial {
 
     public void opcoesMenu(){
 
-        do {
-            opcoes = LeitorEntrada.lerNumerosInteiros("1 - Cadastrar | 2 - Login | 3 - Sair");
+        while (true) {
+            do {
+                opcoes = LeitorEntrada.lerNumerosInteiros("1 - Cadastrar | 2 - Login | 3 - Sair");
 
-            if (opcoes >= 1 && opcoes <= 3){
-                break;
-            }else {
-                System.out.println("Escolher entre 1 e 3.");
+                if (opcoes >= 1 && opcoes <= 3) {
+                    break;
+                } else {
+                    System.out.println("Escolher entre 1 e 3.");
+                }
+            } while (opcoes != 0);
+
+            switch (opcoes) {
+                case 1:
+                    criarConta();
+                    break;
+                case 2:
+                    login();
+                    break;
+                case 3:
+                    System.out.println("Tchauzinho!!");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Apenas uma das 3 opcoes sao validas!");
             }
-        }while (opcoes !=0);
-
-        switch (opcoes){
-            case 1:
-                criarConta();
-                break;
-            case 2:
-                login();
-                break;
-            case 3:
-                System.out.println("Tchauzinho!!");
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Apenas uma das 3 opcoes sao validas!");
         }
-
     }
 
     public void criarConta(){
