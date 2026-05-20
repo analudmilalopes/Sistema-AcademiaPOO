@@ -9,5 +9,5 @@ public interface AlunoRepository {
    void cadastrarAluno(Aluno aluno);
 
    List<Aluno> listarTodos();
-   void removerAluno(String cpf);
+   boolean removerAluno(String cpf);
 }
