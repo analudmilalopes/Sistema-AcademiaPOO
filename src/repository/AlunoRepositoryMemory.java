@@ -21,9 +21,9 @@ public class AlunoRepositoryMemory implements AlunoRepository{
     }
 
     @Override
-    public void removerAluno(String cpf) {
+    public boolean removerAluno(String cpf) {
 
         // utilizando lambda para a estrutura ficar mais limpa
-        alunos.removeIf(aluno -> aluno.getCpf().equals(cpf));
+        return alunos.removeIf(aluno -> aluno.getCpf().equals(cpf));
     }
 }
