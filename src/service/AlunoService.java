@@ -43,8 +43,7 @@ public class AlunoService {
 
     public boolean removerAlunoPorCpf(String cpf) {
 
-        return alunoRepository.listarTodos()
-                .removeIf(aluno -> aluno.getCpf().equals(cpf));
+       return alunoRepository.removerAluno(cpf);
 
     }
     // ja que estou procurando pelo ID de um aluno especifico, retorno Aluno e nao void.
