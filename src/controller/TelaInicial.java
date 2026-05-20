@@ -42,7 +42,7 @@ public class TelaInicial {
                 if (opcoes >= 1 && opcoes <= 3) {
                     break;
                 } else {
-                    System.out.println("Escolher entre 1 e 3.");
+                    System.err.println("Escolher entre 1 e 3.");
                 }
             } while (opcoes != 0);
 
@@ -58,7 +58,7 @@ public class TelaInicial {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Apenas uma das 3 opcoes sao validas!");
+                    System.err.println("Apenas uma das 3 opcoes sao validas!");
             }
         }
     }
