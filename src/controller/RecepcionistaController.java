@@ -8,9 +8,8 @@ import java.util.Scanner;
 
 public class RecepcionistaController {
 
-    private final Recepcionista recepcionista = new Recepcionista("Maria", "98765432100");
-    private AlunoService alunoService;
-    Scanner scanner = new Scanner(System.in);
+    private final AlunoService alunoService;
+    private final Scanner scanner = new Scanner(System.in);
 
     public RecepcionistaController(Recepcionista recepcionista, AlunoService alunoService){
         this.alunoService = alunoService;
