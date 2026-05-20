@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        AlunoRepository alunoRepo = new AlunoRepositoryMemory();
+        AlunoRepository alunoRepo = new AlunoRepositoryArquivo();
         AlunoService alunoService = new AlunoService(alunoRepo);
 
         PlanoRepository planoRepo = new PlanoRepositoryMemory();
