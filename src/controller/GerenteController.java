@@ -9,9 +9,8 @@ import java.util.Scanner;
 
 public class GerenteController {
 
-    private final Gerente gerente = new Gerente("Ludmila", "12345678910");
-    private AlunoService alunoService;
-    private Scanner scanner = new Scanner(System.in);
+    private final AlunoService alunoService;
+    private final Scanner scanner = new Scanner(System.in);
 
     public GerenteController(Gerente gerente, AlunoService alunoService){
         this.alunoService = alunoService;
