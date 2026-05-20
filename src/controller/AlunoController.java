@@ -129,7 +129,7 @@ public class AlunoController {
         if (IMC > 29.9 && IMC <= 34.9) {
             System.out.println("Recomendação: Devido ao seu IMC alto," +
                     " é indicado aumentar mais 20 minutos no seu cardio e fazer déficit calórico!");
-        } else if (IMC <= 39.9) {
+        } else if (IMC > 34.9 && IMC <= 39.9) {
             System.out.println("Recomendação: Devido ao seu IMC alto," +
                     " é indicado aumentar mais 30 minutos no seu cardio e fazer déficit calórico!");
         } else {
