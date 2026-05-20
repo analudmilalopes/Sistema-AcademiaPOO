@@ -136,12 +136,12 @@ public class TelaInicial {
                 break;
             } else {
                 Aluno aluno = alunoService.buscarPorCpf(cpfLogin);
-                if (aluno != null) {
+                if (aluno != null && aluno.getCpf().equals(cpfLogin) && aluno.getNome().equalsIgnoreCase(nomeLogin)) {
                     AlunoController alunoController = new AlunoController(aluno, pagamentoRepository);
                     alunoController.TelaAluno();
                     break;
                 } else {
-                    System.out.println("Nome ou CPF não encontrado no sistema!");
+                    System.err.println("Nome ou CPF inválidos.");
                 }
             }
 
