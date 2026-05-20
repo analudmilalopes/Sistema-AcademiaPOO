@@ -1,80 +1,117 @@
 # 🏋️ Sistema-Academia-POO
 
-Projeto focado para aprimorar Java com Orientação a Objetos.
+**Foco em praticar conceitos de POO🤝**
 
-## ✍️ Evolução do Projeto
 
-**27/Abr/2026: Criação do Projeto**
-Desenvolvimento inicial do sistema com foco em praticar conceitos de POO.
+## 27 de Abril:
+**Criação do Projeto**
 
 * Criei a estrutura inicial do projeto
-* Implementei as classes principais (Aluno, Recepcionista e Gerente)
+* Implementei as classes principais 
+* * `Aluno`
+* * `Recepcionista`
+* * `Gerente`
 * Criação de enums:
 
   * `TipoPlano`
   * `MetodoPagamento`
 
-**02/Mai/2026:  Início da modelagem do sistema**
+## 02 de Maio:
+**Início da modelagem do sistema**
 
-* Criação da classe Pessoa para aplicação de herança 
+* Criação da classe Pessoa para aplicação de herança
 * Refatoração das classes Aluno, Recepcionista e Gerente
+* Adição de tratamento de erro no menu
 * Implementação do menu principal:
   * `Cadastrar`
   * `Login`
   * `Sair`
-* Adição de tratamento de erro no menu
 
-**03/Mai/2026: Camada de Service**
+
+## 03 de Maio:
+**Camada de Service**
+
 * Criação do `PlanoService`
 * Início do `AlunoService`
 * Aplicação de injeção de dependência no service de plano
 * Refatoração de métodos desnecessários
 
-**04/Mai/2026: Finalizando Aluno Service**
+## 04 de Maio:
+**Finalizando service**
 * Finalização do `AlunoService`
 * Uso de Stream com Filter para otimização de busca
 
-**05/Mai/2026: Controller e Repository**
+## 05 de Maio:
+**Controller e Repository**
+
 * Criação do `GerenteController` com menu completo
+* Criação da `TelaSecundaria` para exibição dos planos
 * Adição de remoção de aluno por CPF
 * Refatoração: Recepcionista e Gerente recebem o Service
-* Criação da `TelaSecundaria` para exibição dos planos
 
-**06/Mai/2026: Fluxo de cadastro e pagamento do Aluno**
+## 06 de Maio:
+**Fluxo de cadastro e pagamento do Aluno**
 * Criação da `TelaTerciaria` com menu de pagamento
 * Implementação do termo de adesão com dados do aluno
 * Fluxo completo: cadastro → escolha de plano → pagamento
 * ID do aluno gerado automaticamente
 
-**07/Mai/2026: Desenvolvendo arquitetura**
+## 07 de Maio:
+**Desenvolvendo arquitetura**
+
 * Organizando as classes em camadas:
 * `model`
 * `repository`
 * `service`
 * `controller`
 
-**12/Mai/2026: Arrumando bugs de cadastro**
-* Correção de loops que encerravam o menu incorretamente
-*  Correção na leitura da entrada do nome do aluno
-* Ajuste do fluxo após pagamento efetuado
+## 12 de Maio:
+**Arrumando bugs de cadastro**
 
-**13/Mai/2026: Melhorias na busca e organização**
+* Correções:
+* `loops que encerravam o menu incorretamente`
+*  `leitura da entrada do nome do aluno`
+* `ajuste do fluxo após pagamento efetuado`
+
+## 13 de Maio:
+**Melhorias na busca e organização**
+
 * Implementação de busca de alunos por tipo de plano
-* Uso de `Stream`
 * Melhorias visuais no menu do gerente
+* Uso de `Stream`
 
-**16/Mai/2026: Criação e correções**
+
+## 16 de Maio:
+**Controller Aluno e correções**
 
 * Criação do `AlunoController`
 * Criação do `PagamentoRepository`
 * Implementação do cálculo de IMC
-* Adição de peso e altura no cadastro do aluno
-* Ajuste do fluxo de cadastro e pagamento
-* Implementação de loops no controller do gerente
-* Correção de bugs nos menus
-* Correção de `switch case`
 * Refatoração da leitura de entrada
+* Adição de peso e altura no cadastro do aluno
+* Implementação de loops no controller do gerente
+* Correções:
+* `bugs nos menus`
+* `switch case`
+* `ajuste do fluxo de cadastro e pagamento`
 
-**18/Mai/2026: Correções de validação e bugs**
-* Correção do cálculo de IMC
-* Melhorias na validação de nomes e números decimais
+
+## 18 de Maio:
+**Correções de validação e bugs**
+* Correções:
+* `cálculo de IMC`
+* `validação de nomes e números decimais`
+
+
+## 19 de Maio:
+**Controller recepcionista e correções**
+
+* Criação do `RecepcionistaController`
+* Integração da recepcionista na `TelaInicial` e `Main`
+* Implementação da visualização de dados do pagamento
+* Adição de recomendação de cardio baseada no IMC
+* Melhorias visuais nos dados do aluno e treino semanal
+* Correções:
+* `lógica de IMC alto`
+* `salvamento do pagamento no repositório`
+* `validação de CPF e nome no login`
