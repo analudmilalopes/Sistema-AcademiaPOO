@@ -26,6 +26,7 @@ public class TelaInicial {
                        TelaSecundaria telaSecundaria, TelaTerciaria telaTerciaria, PagamentoRepository pagamentoRepository){
         this.alunoService = alunoService;
         this.gerenteController = gerenteController;
+        this.recepcionistaController = recepcionistaController;
         this.planoService = planoService;
         this.telaSecundaria = telaSecundaria;
         this.telaTerciaria = telaTerciaria;
