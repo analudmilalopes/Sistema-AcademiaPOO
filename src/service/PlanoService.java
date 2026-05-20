@@ -38,8 +38,9 @@ public class PlanoService {
     public void listaTodosPlanos(){
         List<Plano> planos = planoRepository.listarTodos();
 
+        int contador = 1;
         for (Plano plano : planos){
-            System.out.println("1 - " + plano.getTipoPlano().name());
+            System.out.println(contador + " - " + plano.getTipoPlano().name());
             System.out.println("Duração de " + plano.getDuracaoEmMeses() + " meses");
             System.out.println("Valor: R$" + plano.getValor() + " reais.");
             System.out.println("Taxa de matrícula: R$" + plano.getTaxaMatricula() + " reais.");
