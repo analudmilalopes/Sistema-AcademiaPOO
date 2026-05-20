@@ -48,14 +48,14 @@ public class LeitorEntrada {
 
             try {
             if (entradaMensagem.isEmpty()){
-                throw new NumberFormatException("Nome não pode estar vazio.");
+                throw new IllegalArgumentException("Nome não pode estar vazio.");
             } if (!entradaMensagem.matches("[a-zA-ZÀ-ÿ ]+")) {
-                throw new NumberFormatException("Somente letras.");
+                    throw new IllegalArgumentException("Somente letras.");
             }
 
             return entradaMensagem;
 
-            } catch (NumberFormatException e){
+            } catch (IllegalArgumentException e){
                 System.err.println(e.getMessage());
             }
         }
