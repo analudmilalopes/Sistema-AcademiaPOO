@@ -61,6 +61,11 @@ public class AlunoRepositoryArquivo implements AlunoRepository{
             System.err.println("Erro ao ler arquivo de alunos!");
         }
 
+        int maiorId = alunos.stream()
+                .mapToInt(Aluno::getAlunoID)
+                .max()
+                .orElse(0);
+        Aluno.setContarId(maiorId + 1);
         return alunos;
     }
 
