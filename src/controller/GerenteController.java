@@ -62,7 +62,11 @@ public class GerenteController {
                     break;
                 case 6:
                     String planoProcurado = LeitorEntrada.lerNomes("Digite o nome do Plano que deseja procurar:\n");
+                    try {
                     mostrarBuscaLista(alunoService.buscarPeloTipoPlano(TipoPlano.valueOf(planoProcurado.toUpperCase())));
+                    } catch (IllegalArgumentException e){
+                        System.err.println("Não existe este plano! Tente: MENSAL, TRIMESTRAL ou ANUAL");
+                    }
                     break;
                 case 7:
                     System.out.println("Até logo!!");
