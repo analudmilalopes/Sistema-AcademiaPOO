@@ -45,7 +45,7 @@ public class AlunoRepositoryArquivo implements AlunoRepository{
             while ((linha = reader.readLine()) != null){
                 String[] campos = linha.split(",");
 
-                int id = Integer.parseInt(campos[0]);
+                int id = Integer.parseInt(campos[0].trim());
                 String nome = campos[1];
                 String cpf = campos[2];
                 TipoPlano tipoPlano = TipoPlano.valueOf(campos[3]);
