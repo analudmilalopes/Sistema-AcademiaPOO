@@ -4,6 +4,7 @@ import model.Aluno;
 import model.Recepcionista;
 import service.AlunoService;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class RecepcionistaController {
@@ -59,8 +60,9 @@ public class RecepcionistaController {
         }
     }
 
-    public void mostrarBusca(Aluno aluno){
-        if (aluno != null){
+    public void mostrarBusca(Optional<Aluno> resultado){
+        if (resultado.isPresent()){
+            Aluno aluno = resultado.get();
             System.out.println("👤 DADOS DO ALUNO  ");
             System.out.println("Nome:   " + aluno.getNome());
             System.out.println("CPF:    " + aluno.getCpf());
