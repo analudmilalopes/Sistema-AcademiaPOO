@@ -16,6 +16,9 @@ public class Aluno extends Pessoa{
         this.altura = altura;
     }
 
+    public static void setContarId(int id){
+        contarId = id;
+    }
     public int getAlunoID(){
         return alunoID;
     }
