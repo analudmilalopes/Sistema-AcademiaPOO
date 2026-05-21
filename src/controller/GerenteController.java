@@ -5,6 +5,7 @@ import model.Gerente;
 import service.AlunoService;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class GerenteController {
@@ -71,8 +72,9 @@ public class GerenteController {
         }
     }
 
-    public void mostrarBusca(Aluno aluno){;
-        if (aluno != null){
+    public void mostrarBusca(Optional<Aluno> resultado){;
+        if (resultado.isPresent()){
+            Aluno aluno = resultado.get();
             System.out.println("👤 DADOS DO ALUNO  ");
             System.out.println("ID:   " + aluno.getAlunoID());
             System.out.println("Nome:   " + aluno.getNome());
@@ -90,7 +92,8 @@ public class GerenteController {
             return;
         }
         for (Aluno aluno : alunos){
-            mostrarBusca(aluno);
+            //  aluno existe porque veio da lista entao nao tem risco de estar vazio
+            mostrarBusca(Optional.of(aluno));
             System.out.println("---");
         }
     }
