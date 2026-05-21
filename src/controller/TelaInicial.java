@@ -69,6 +69,10 @@ public class TelaInicial {
         String nome = LeitorEntrada.lerNomes("Nome:");
         String cpf = LeitorEntrada.lerCpf("CPF:");
 
+        if (alunoService.buscarPorCpf(cpf).isPresent()){
+            System.err.println("CPF já cadastrado!");
+            return;
+        }
         double altura = LeitorEntrada.lerNumerosQuebrados("Altura:");
         double peso = LeitorEntrada.lerNumerosQuebrados("Peso:");
 
