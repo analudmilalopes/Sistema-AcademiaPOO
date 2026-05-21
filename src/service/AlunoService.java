@@ -70,7 +70,7 @@ public class AlunoService {
         public Optional<Aluno> buscarPorNome (String nome){
             return alunoRepository.listarTodos()
                     .stream()
-                    .filter(aluno -> aluno.getNome().contains(nome))
+                    .filter(aluno -> aluno.getNome().toLowerCase().contains(nome.toLowerCase()))
                     .findFirst();
 
         }
