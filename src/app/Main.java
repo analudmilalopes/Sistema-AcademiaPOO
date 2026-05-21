@@ -11,12 +11,11 @@ import service.PlanoService;
 public class Main {
     public static void main(String[] args) {
 
-
-        AlunoRepository alunoRepo = new AlunoRepositoryArquivo();
-        AlunoService alunoService = new AlunoService(alunoRepo);
-
         PlanoRepository planoRepo = new PlanoRepositoryMemory();
         PlanoService planoService = new PlanoService(planoRepo);
+
+        AlunoRepository alunoRepo = new AlunoRepositoryArquivo(planoService);
+        AlunoService alunoService = new AlunoService(alunoRepo);
 
         Gerente gerente = new Gerente("Ludmila", "12345678910");
         Recepcionista recepcionista = new Recepcionista("Maria", "98765432100");
