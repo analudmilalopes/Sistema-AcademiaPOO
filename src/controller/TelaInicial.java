@@ -7,6 +7,7 @@ import repository.PagamentoRepository;
 import service.AlunoService;
 import service.PlanoService;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class TelaInicial {
@@ -134,9 +135,9 @@ public class TelaInicial {
                 recepcionistaController.TelaRecepcionista();
                 break;
             } else {
-                Aluno aluno = alunoService.buscarPorCpf(cpfLogin);
-                if (aluno != null && aluno.getCpf().equals(cpfLogin) && aluno.getNome().equalsIgnoreCase(nomeLogin)) {
-                    AlunoController alunoController = new AlunoController(aluno, pagamentoRepository);
+                Optional<Aluno> aluno = alunoService.buscarPorCpf(cpfLogin);
+                if (aluno.isPresent() && aluno.get().getCpf().equals(cpfLogin) && aluno.get().getNome().equalsIgnoreCase(nomeLogin)) {
+                    AlunoController alunoController = new AlunoController(aluno.get(), pagamentoRepository);
                     alunoController.TelaAluno();
                     break;
                 } else {
