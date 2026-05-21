@@ -32,3 +32,6 @@ bin/
 ### IntelliJ ###
 .idea/
 *.iml
+
+### Project data ###
+alunos.txt
