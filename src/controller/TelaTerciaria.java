@@ -7,6 +7,7 @@
     import service.AlunoService;
 
     import java.time.LocalDate;
+    import java.util.Optional;
     import java.util.Scanner;
 
     public class TelaTerciaria {
@@ -120,8 +121,8 @@
                 int confirmarPagamento = LeitorEntrada.lerNumerosInteiros("1 - CONTINUAR PAGAMENTO | 2 - CANCELAR\n");
                 if (confirmarPagamento == 1){
                     alunoService.cadastrarTodosAlunos(nome, cpf, plano, peso, altura);
-                    Aluno aluno = alunoService.buscarPorCpf(cpf);
-                    Pagamento pagamento = new Pagamento(aluno, total, metodoPagamento, LocalDate.now());
+                    Optional<Aluno> aluno = alunoService.buscarPorCpf(cpf);
+                    Pagamento pagamento = new Pagamento(aluno.orElseThrow(), total, metodoPagamento, LocalDate.now());
                     pagamentoRepository.adicionarPagamento(pagamento);
                     System.out.println("Pagamento efetuado! Bom treino! \uD83D\uDE09");
                     return true;
