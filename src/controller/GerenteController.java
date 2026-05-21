@@ -65,7 +65,8 @@ public class GerenteController {
                     mostrarBuscaLista(alunoService.buscarPeloTipoPlano(TipoPlano.valueOf(planoProcurado.toUpperCase())));
                     break;
                 case 7:
-                   return;
+                    System.out.println("Até logo!!");
+                    System.exit(0);
                 default:
                     System.err.println("Apenas uma das 6 opções são válidas!");
             }

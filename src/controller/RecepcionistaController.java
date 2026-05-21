@@ -53,7 +53,8 @@ public class RecepcionistaController {
                     }
                     break;
                 case 5:
-                    return;
+                    System.out.println("Até logo!");
+                    System.exit(0);
                 default:
                     System.err.println("Apenas uma das 5 opções são válidas!");
             }
