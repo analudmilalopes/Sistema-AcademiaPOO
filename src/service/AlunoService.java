@@ -6,6 +6,7 @@ import model.Plano;
 import repository.AlunoRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class AlunoService {
 
@@ -47,33 +48,30 @@ public class AlunoService {
 
     }
     // ja que estou procurando pelo ID de um aluno especifico, retorno Aluno e nao void.
-    public Aluno buscarPorId(int alunoID) {
+    public Optional<Aluno> buscarPorId(int alunoID) {
         // ao inves de guardar em uma variavel para usar dps como faziamos com LIST, no stream chamamos na hora
 
         // return capta o resultado
         return alunoRepository.listarTodos()
                 .stream()                 // como o ID e um numero inteiro usamos o == como comparacao
                 .filter(aluno -> aluno.getAlunoID() == alunoID)
-                .findFirst()
-                .orElse(null);
+                .findFirst();
 
     }
 
-        public Aluno buscarPorCpf (String cpf){
+        public Optional<Aluno> buscarPorCpf (String cpf){
             return alunoRepository.listarTodos()
                     .stream()
                     .filter(aluno -> aluno.getCpf().equals(cpf))
-                    .findFirst()
-                    .orElse(null);
+                    .findFirst();
 
         }
 
-        public Aluno buscarPorNome (String nome){
+        public Optional<Aluno> buscarPorNome (String nome){
             return alunoRepository.listarTodos()
                     .stream()
                     .filter(aluno -> aluno.getNome().contains(nome))
-                    .findFirst()
-                    .orElse(null);
+                    .findFirst();
 
         }
 
