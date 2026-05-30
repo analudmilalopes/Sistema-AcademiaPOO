@@ -1,5 +1,6 @@
     package controller;
     import enums.MetodoPagamento;
+    import exception.AlunoJaCadastradoException;
     import model.Aluno;
     import model.Pagamento;
     import model.Plano;
@@ -120,7 +121,12 @@
 
                 int confirmarPagamento = LeitorEntrada.lerNumerosInteiros("1 - CONTINUAR PAGAMENTO | 2 - CANCELAR\n");
                 if (confirmarPagamento == 1){
-                    alunoService.cadastrarTodosAlunos(nome, cpf, plano, peso, altura);
+                    try {
+                        alunoService.cadastrarTodosAlunos(nome, cpf, plano, peso, altura);
+                    } catch (AlunoJaCadastradoException e) {
+                        System.err.println(e.getMessage());
+                        return false;
+                    }
                     Optional<Aluno> aluno = alunoService.buscarPorCpf(cpf);
                     Pagamento pagamento = new Pagamento(aluno.orElseThrow(), total, metodoPagamento, LocalDate.now());
                     pagamentoRepository.adicionarPagamento(pagamento);

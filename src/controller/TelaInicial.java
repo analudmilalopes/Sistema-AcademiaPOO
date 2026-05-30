@@ -1,6 +1,7 @@
 package controller;
 
 import enums.TipoPlano;
+import exception.AlunoJaCadastradoException;
 import model.Aluno;
 import model.Plano;
 import repository.PagamentoRepository;
@@ -70,8 +71,7 @@ public class TelaInicial {
         String cpf = LeitorEntrada.lerCpf("CPF:");
 
         if (alunoService.buscarPorCpf(cpf).isPresent()){
-            System.err.println("CPF já cadastrado!");
-            return;
+          throw new AlunoJaCadastradoException("Aluno com este CPF, já cadastrado!");
         }
         double altura = LeitorEntrada.lerNumerosQuebrados("Altura:");
         double peso = LeitorEntrada.lerNumerosQuebrados("Peso:");

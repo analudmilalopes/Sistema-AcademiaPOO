@@ -1,6 +1,7 @@
 package service;
 
 import enums.TipoPlano;
+import exception.AlunoJaCadastradoException;
 import model.Aluno;
 import model.Plano;
 import repository.AlunoRepository;
@@ -21,8 +22,7 @@ public class AlunoService {
 
             for (Aluno aluno : alunos) {
                 if (aluno.getCpf().equals(cpf)) {
-                    System.out.println("Aluno já cadastrado no sistema!");
-                    return;
+                    throw new AlunoJaCadastradoException("Aluno com este CPF, já cadastrado!");
                 }
             }
 
