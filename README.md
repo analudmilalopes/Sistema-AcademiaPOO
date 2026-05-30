@@ -136,3 +136,11 @@
   * Contador do ID sincronizado com o arquivo `alunos.txt`
   * `try catch` na mostrar busca por tipo diferente de plano em `GerenteController`[
   * adicionando `alunos.txt` ao `.gitignore`
+
+  ### 30 de Maio:
+  **Melhoria pós-finalização**
+
+  * Criação da exception personalizada `AlunoJaCadastradoException`
+  * Substituição de `System.out.println` no `AlunoService` por lançamento de exception
+  * Tratamento da exception no fluxo de cadastro/pagamento
+  * Melhoria na separação entre regra de negócio e apresentação no console
